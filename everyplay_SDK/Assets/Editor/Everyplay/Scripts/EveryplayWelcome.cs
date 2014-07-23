@@ -6,7 +6,7 @@ public class EveryplayWelcome : EditorWindow
 {
     private Texture2D welcomeTexture2d = null;
     private GUIStyle welcomeStyle = null;
-
+//GUISytle是定义GUI样式
     public static void ShowWelcome()
     {
         Texture2D texture = (Texture2D)EditorGUIUtility.Load("Everyplay/Images/everyplay-welcome.png");
@@ -24,12 +24,12 @@ public class EveryplayWelcome : EditorWindow
                 window.maxSize = new Vector2(texture.width, texture.height);
                 window.welcomeTexture2d = texture;
                 window.welcomeStyle = style;
-                window.Show();
-            }
+                window.Show();//显示创建好的窗口，此时窗口什么都不显示，就是一个纯粹的窗口。窗口的内容
+            }					//在OnGUI()里面绘制
         }
     }
 
-    void OnGUI()
+    void OnGUI() //窗口被一个button填满，点击button跳转到everyplay官网
     {
         if(welcomeStyle == null || welcomeTexture2d == null) {
             return;
