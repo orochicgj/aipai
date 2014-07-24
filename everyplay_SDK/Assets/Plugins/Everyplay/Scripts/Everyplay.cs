@@ -133,6 +133,7 @@ public class Everyplay : MonoBehaviour
 
                                 // Add test buttons if requested
                                 if(settings.testButtonsEnabled) {
+									//添加控制按钮
                                    AddTestButtons(everyplayGameObject);
                                 }
 
@@ -750,9 +751,11 @@ public class Everyplay : MonoBehaviour
         }
     }
 
+	//控制按钮接受的参数是Everyplay对象实例
     private static void AddTestButtons(GameObject gameObject) {
         Texture2D textureAtlas = (Texture2D)Resources.Load("everyplay-test-buttons", typeof(Texture2D));
         if(textureAtlas != null) {
+		//添加EveryplayRecButtons组件到游戏物体
             EveryplayRecButtons recButtons = gameObject.AddComponent<EveryplayRecButtons>();
             if(recButtons != null) {
                 recButtons.atlasTexture = textureAtlas;
