@@ -123,13 +123,14 @@ public class EveryplaySettingsEditor : Editor
 
     private static EveryplaySettings CreateEveryplaySettings()
     {
+	//创建EveryplaySettings的脚本化对象
         EveryplaySettings everyplaySettings = (EveryplaySettings)ScriptableObject.CreateInstance(typeof(EveryplaySettings));
 
         if(everyplaySettings != null) {
             if(!Directory.Exists(System.IO.Path.Combine(Application.dataPath, "Plugins/Everyplay/Resources"))) {
                 AssetDatabase.CreateFolder("Assets/Plugins/Everyplay", "Resources");
             }
-
+			//把EveryplaySettings脚本创建成资源，因为只有这样才可以用Resources.load加载
             AssetDatabase.CreateAsset(everyplaySettings, "Assets/Plugins/Everyplay/Resources/" + settingsFile + settingsFileExtension);
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
