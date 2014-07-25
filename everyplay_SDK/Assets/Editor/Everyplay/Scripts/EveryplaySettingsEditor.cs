@@ -55,11 +55,14 @@ public class EveryplaySettingsEditor : Editor
                 if(!currentSettings.IsValid) {
                     EditorGUILayout.HelpBox("Invalid or missing game credentials, Everyplay disabled. Check your game credentials at https://developers.everyplay.com/", MessageType.Error);
                 }
-
+				//开始GUI水平组布局，返回一个矩形区域。利用这个可以做复合布局
                 EditorGUILayout.BeginHorizontal();
+				//显示一个标签
                 EditorGUILayout.LabelField(labelClientId, GUILayout.Width(108), GUILayout.Height(18));
+				//显示标签后面的文本框，并把文本框里面的值赋给EveryplaySettings的clientID
                 currentSettings.clientId = TrimmedText(EditorGUILayout.TextField(currentSettings.clientId));
-                EditorGUILayout.EndHorizontal();
+                //结束水平布局
+				EditorGUILayout.EndHorizontal();
 
                 EditorGUILayout.BeginHorizontal();
                 EditorGUILayout.LabelField(labelClientSecret, GUILayout.Width(108), GUILayout.Height(18));
@@ -72,15 +75,20 @@ public class EveryplaySettingsEditor : Editor
                 EditorGUILayout.EndHorizontal();
 
                 EditorGUILayout.HelpBox("2) Enable recording on these platforms", MessageType.None);
-
+				
+				//开始垂直布局
                 EditorGUILayout.BeginVertical();
-
+				
+				//用一个Toggle控制是否支持IOS
                 iosSupportEnabled = EditorGUILayout.Toggle(labelIOsSupport, currentSettings.iosSupportEnabled);
 
                 if(iosSupportEnabled != currentSettings.iosSupportEnabled) {
+					//如果支持就给EverypalySettings的属性赋值
                     currentSettings.iosSupportEnabled = iosSupportEnabled;
+					
                     EveryplayPostprocessor.SetEveryplayEnabledForTarget(BuildTargetGroup.iPhone, currentSettings.iosSupportEnabled);
-                    EditorUtility.SetDirty(currentSettings);
+                    //当currentSettings发生改变，会自动把值保存到硬盘
+					EditorUtility.SetDirty(currentSettings);
                 }
 
                 if(showAndroidSettings) {
@@ -102,6 +110,7 @@ public class EveryplaySettingsEditor : Editor
                 if(testButtonsEnabled != currentSettings.testButtonsEnabled) {
                     currentSettings.testButtonsEnabled = testButtonsEnabled;
                     EditorUtility.SetDirty(currentSettings);
+					//根据是否开启测试，确定要不要复制图片
                     EnableTestButtons(testButtonsEnabled);
                 }
                 EditorGUILayout.EndVertical();
