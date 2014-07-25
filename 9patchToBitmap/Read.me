@@ -1,0 +1,8 @@
+以编程的方式实现9-patch贴图转换成bitmap
+
+利用Android工具aapt.exe，执行  aapt.exe s -i xxx.9.png -o xx.png 将9Patch图片转变为一张包含特殊信息的图片，
+这个图片不能使用ps等工具来编辑生成，估计图片里包含有一些android的特殊信息。只有经过这样处理过后的9patch
+图片，才能在sd卡读取并保持9patch特性。
+
+draw9()  是以编程的方式从sd卡读取图片，然后显示在一个imageView
+draw99() 是以常规方式，从drawable读取9patch图片，然后显示在一个imageView里面
