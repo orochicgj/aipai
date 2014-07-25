@@ -9,9 +9,12 @@ public class EveryplayWelcome : EditorWindow
 //GUISytle是定义GUI样式
     public static void ShowWelcome()
     {
+		//EditorGUIUtility.Load会优先在Assets/Editor Default Resources目录下寻找资源，如果找不到，
+		//则会在内建的editor resource里面找
         Texture2D texture = (Texture2D)EditorGUIUtility.Load("Everyplay/Images/everyplay-welcome.png");
 
         if(texture != null) {
+		//定义GUI样式
             GUIStyle style = new GUIStyle();
             style.margin = new RectOffset(0, 0, 0, 0);
             style.padding = new RectOffset(0, 0, 0, 0);
@@ -29,12 +32,13 @@ public class EveryplayWelcome : EditorWindow
         }
     }
 
-    void OnGUI() //窗口被一个button填满，点击button跳转到everyplay官网
+    void OnGUI() 
     {
         if(welcomeStyle == null || welcomeTexture2d == null) {
             return;
         }
 
+		//画了一个button填满窗口
         if(GUI.Button(new Rect(0, 0, welcomeTexture2d.width, welcomeTexture2d.height), welcomeTexture2d, welcomeStyle)) {
             Close();
             EveryplaySettingsEditor.ShowSettings();

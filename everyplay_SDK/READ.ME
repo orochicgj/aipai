@@ -1,70 +1,56 @@
-这是everyplay录像sdk代码分析
 
-编辑时运行
-[CustomEditor( typeof(EveryplaySettings ))]   //这是一个自定义编辑器
-EveryplaySettingsEditor.cs
-     [MenuItem( "Edit/Everyplay Settings" )]
-    public static void ShowSettings()
-    {
-          EveryplaySettings settingsInstance = (EveryplaySettings) Resources.Load(settingsFile);
-          if(settingsInstance == null) //这个在第一次必定会执行。这个也是后续加载脚本时不为空的原因（猜测）
-             settingsInstance = CreateEveryplaySettings();//建立脚本化对象和资源文件
-          if(settingsInstance != null)
-                  EveryplayPostprocessor .ValidateAndUpdateFacebook();
-                  EveryplayLegacyCleanup.Clean(false );
-                  Selection.activeObject = settingsInstance;
+导入sdk后，有一个初始化的过程，这个是自动执行的
+
+EveryplayLegacyCleanup.cs
+     OnPreprocessTexture()//设置导入资源的纹理格式。清理旧文件
+     OnPostprocessAllAssets()//清理旧文件，弹出everyplay欢迎界面
+
+欢迎界面是在EveryplayWelcome.cs 里面实现的。
+     ShowWelcome()//创建窗体
+     OnGUI()//绘制窗体内容。everyplay的做法是用一个button填满窗体，点击button跳转到他的官网
+
+在点击button之后，代码的执行进入EveryplaySettingsEditor.cs。第一次调用ShowSettings()会做一个初始化，就是把EveryplaySettings.cs实例化为一个脚本化对象，只有这样之后才能load脚本。这个过程还可以通过菜单栏Editor--Everyplay settings来实现。
+
+ps：Ediotor类是一切自定义编辑器的基类。如果想把编辑器附加到一个自定义的组件，可以添加[ CustomEditor( typeof (EveryplaySettings ))]属性，这里就是这么做的
+
+自定义Inspector界面是在OnInspectorGUI()画出来的。下面的操作也是在里面完成的
+OnInspectorGUI()首先会做一个判断bool showAndroidSettings = CheckForAndroidSDK();如果没有android的sdk，则不显示android平台的选项
+     
+EveryplayPostprocessor .SetEveryplayEnabledForTarget //为生成的目标平台指定一个符号
+testButtonsEnabled = EditorGUILayout .Toggle(labelTestButtons, currentSettings.testButtonsEnabled);//设置是否显示录像控制按钮。游戏启动后所有控制sdk的操作都在这里完成
+
+。。。。。。。。。。。。。。。。。。。。。。。到这里整个sdk导入后的操作已经做完。。。。。。。。。。。
+
+build时运行
+
+EveryplayPostprocessor.cs
+     OnPostProcessBuildEarly()//主要是调用clean，确认之前资源赋值是不是成功了。然后是配置facebook和修复unity的bug
+     OnPostProcessBuild（）//根据之前设置的目标平台，执行对应的打包接口
+
+。。。。。。。。。。。。。。。。。。。。。。。。。
+
+游戏运行时执行
+
+EveryplayPostprocessor.cs
+     OnPostprocessScene() ///这个函数每次新建场景前都会执行
+          GameObject everyplayEarlyInitializer = new GameObject( "EveryplayEarlyInitializer" );//实例化EveryplayEarlyInitializer.cs
+
+          代码跳转到EveryplayEarlyInitializer.cs
+               void Awake()
+         {
+             Everyplay .Initialize();
+         }
+
+     代码跳转到Everyplay.cs   
+    会执行下面这个代码片段
+       private static Everyplay EveryplayInstance {
+        get {
+
+                    ///初始化了一个Everyplay实例，这是一个单例的实现
+                    ///把控制按钮显示游戏里面，控制逻辑都在按钮上面
+
+                     DontDestroyOnLoad(everyplayGameObject); ///确保在场景切换的时候，此实例不会被销毁
+
+               }
      }
 
-     public override void OnInspectorGUI() //回调函数，绘制Inspector界面，貌似是检查到界面变化才会重绘
-
-
-
-
-编译时运行
-
-EveryplayPostprocessor.cs
-      OnPostProcessBuildEarly()
-          EveryplayLegacyCleanup .Clean(false);//清除存在的旧文件
-          ValidateAndUpdateFacebook();//检查、更新facebook配置
-          if（platform == IOS）
-               FixUnityPlistAppendBug(path);//修正一些unity版本存在的bug
-   
-     OnPostProcessBuild（）
-          EveryplaySettings settings = (EveryplaySettings) Resources.Load(EveryplaySettingsEditor .settingsFile);
-          if(settings ！= null)
-               PostProcessBuild_iOS(path, settings.clientId);
-               or
-               PostProcessBuild_Android(path, settings.clientId);
-  
-runtime时运行
-
-EveryplayPostprocessor.cs
-
-     EveryplaySettings settings = (EveryplaySettings) Resources.Load(EveryplaySettingsEditor .settingsFile);
-     GameObject everyplayEarlyInitializer = new GameObject( "EveryplayEarlyInitializer" );
-      everyplayEarlyInitializer.AddComponent< EveryplayEarlyInitializer>();
-     //实例化了EveryplayEarlyInitializer.cs
-                void Awake()
-    {
-        Everyplay.Initialize();
-               private static Everyplay EveryplayInstance {
-         get {
-                        执行初始化everyplay实例，这是一个单例的实现
-                       //根据android平台和IOS平台，执行对应的底层初始化操作。下面这个函数调用的会是native代码
-                        InitEveryplay（）
-                        DontDestroyOnLoad(everyplayGameObject); //保证切换不同的场景，此实例都不会被释放
-                }
-    }
-
-资源导入时运行。。。。。。。。。。。。。。整个sdk导入后最先执行的是这里
-EveryplayLegacyCleanup.cs
-
-     OnPreprocessTexture（）//纹理导入器运行之前会执行这个函数，最重要的作用还是再次调用clean函数
-     OnPostprocessAllAssets（）//再次clean
-          EveryplayWelcome .ShowWelcome();
-               EveryplaySettingsEditor .ShowSettings(); ///显示inspector自定义界面
-              Application.OpenURL("https://developers.everyplay.com/" ); //打开首页
-
-
-
-      
