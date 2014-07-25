@@ -1,0 +1,6 @@
+cd ..
+source build/android/envsetup.sh
+cd jni
+gclient runhooks
+cd ..
+ninja -C out/Release audioproc_debug_proto

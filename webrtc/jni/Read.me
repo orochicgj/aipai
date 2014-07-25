@@ -1,0 +1,66 @@
+1、trunk一份干净的源码，会发现在trunk根目录有一个Android.mk文件，可以根据这个文件，ndk-build编译出我们需要的各个平台的 代码。
+2、因为ndk-build命令是寻找当前路径下的jni目录里面的Android.mk为入口来执行。所以要添加一个jni目录，并新建Android.mk。（之所以不把整个trunk里面的内容放到一个jni里面，是因为这样会把目录结构搞乱。新建一个jni，并在里面的Android.mk包含外面的Android.mk，可以起到一样的作用，好处是既不会搞坏原有的目录结构，还便于维护代码，因为我们自己做的修改都在jni目录里面）
+3、Jni/Android.mk
+MMM_PATH := $(call my-dir)
+
+include $(MMM_PATH)/../Android.mk
+
+Ps：1、call my-dir返回的是当前Android.mk所在路径，即jni/
+2、自己定义的变量名可以随意，但是不要以LOCAL_开头
+4、在trunk下面执行ndk-build后，会找到jni/Android.mk并执行，然后根据所写内容，执行trunk下面的Android.mk。
+5、Trunk/Android.mk里面指定了要生成的模块是
+LOCAL_MODULE := libwebrtc_audio_preprocessing
+也是我们要的模块。
+LOCAL_WHOLE_STATIC_LIBRARIES := \
+    libwebrtc_spl \
+    libwebrtc_apm \
+    libwebrtc_apm_utility \
+    libwebrtc_vad \
+    libwebrtc_ns \
+    libwebrtc_agc \
+    libwebrtc_aec \
+    libwebrtc_aecm \
+    libwebrtc_system_wrappers
+指定了生成此模块需要的完整的静态库。
+6、第4步执行ndk-build命令失败，修改android-webrtc.mk的路径。再执行此命令，发现缺少debug.pb.h。我们在trunk下面执行 find . -name  debug.pb.h 发现此文件没有。Google后知道这个文件是跟protobuf有关的，可以通过gyp，然后用ninja生成。
+如果是拷贝过来的源码，跟trunk同级的目录中可能没有.gclient文件，这样的话就要先执行以下流程：
+1. gclient config https://webrtc.googlecode.com/svn/trunk（在trunk同级目录执行此命令）
+
+2. add "target_os = ['android'] to the end of .gclient
+3. cd trun
+4. source ./build/android/envsetup.sh
+5. gclient runhooks
+Ps：第1步是产生.gclient配置文件，第2步是指定编译为android平台；第4步是设置一些环境变量和函数；第5步是根据同步源码得来的一些gyp文件生成ninja的配置。执行完第5步之后会生成一个out/目录，里面有ninja的配置。
+7、ninja -C out/Debug -t targets all >> txt
+把产生的信息写入txt，会发现里面有很多编译的依赖关系，比如要编译某个模块需要哪些文件（比如要编译libprotobuf_lite.a，搜索这个静态库，就能找到这个静态库依赖的文件关系）；还有整个编译过程中会产生的某些文件，比如我们现在缺少debug.pb.h这个文件，就可以直接在这里搜索，找到这个文件依赖的target，用ninja编译这个target，就能产生这个文件。
+我们发现debug.pb.h依赖audioproc_debug_proto，所以
+ninja -C out/Debug  audioproc_debug_proto
+就能生成这个头文件，把生成的头文件拷贝到需要的位置就可以了。
+
+、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、
+还有一种方法可以查找出libprotobuf_lite.a的依赖文件
+因为我们已经知道了要生成的模块是libprotobuf_lite.a
+执行   find . -name '*.mk' -exec grep protobuf_lite -H --color {} \;
+可以找出所用跟这个模块有关系的mk文件，因为我们要的是target.mk，所以可以找到
+./third_party/protobuf/protobuf_lite.target.mk
+这个文件里面的obj就指出了所有依赖的.cc文件
+     、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、
+
+8、再执行ndk-build，这个时候没有找不到的文件了。但是有如下错误(截取了一段)：
+/usr/local/google/bin/android-ndk-r8e/toolchains/arm-linux-androideabi-4.6/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/libwebrtc_apm.a(audio_processing_impl.o): in function webrtc::AudioProcessingImpl::ProcessStream(webrtc::AudioFrame*):jni/../webrtc/modules/audio_processing/audio_processing_impl.cc:337: error: undefined reference to 'google::protobuf::internal::kEmptyString'
+collect2: ld returned 1 exit status
+这个错误的意思是链接的时候发生错误。意思就是说链接的时候找不到kEmptyString'这个函数的实现，所以我们需要找到这个函数所在的静态库，编译出这个静态库，并且把他添加到最终要生成模块的依赖库中。
+9、这个时候再执行ndk-build，会有新的错误出现（截取一段）：
+/usr/local/google/bin/android-ndk-r8e/toolchains/arm-linux-androideabi-4.6/prebuilt/linux-x86_64/bin/../lib/gcc/arm-linux-androideabi/4.6/../../../../arm-linux-androideabi/bin/ld: ./obj/local/armeabi/libwebrtc_apm.a(audio_processing_impl.o): in function webrtc::AudioProcessingImpl::AudioProcessingImpl(int):jni/../webrtc/modules/audio_processing/audio_processing_impl.cc:78: error: undefined reference to 'webrtc::audioproc::Event::Event()'
+意思是找不到webrtc::audioproc::Event::Event()，和之前的错误类型一样，还有模块没有添加。这个时候在trunk下执行：
+   grep 'Stream::Stream()' . -R --color
+可以找到依赖文件debug.pb.cc(为什么是查找Stream::Stream()也是有讲究的，如果查找完整的四个命名空间，可能会没有内容，如果只查找函数，结果又太多)
+10、同理第7条，有两种方法找出debug.pb.cc对应的模块，一个是查找生成的txt文件，另一个是查找mk文件，找obj行。
+11、写好一个mk文件，包含到jni/Andoroid.mk里面，并且把生成的模块添加到trunk/Android.mk的依赖库中
+12、在jni/Application.mk中指明只编译一个最终模块
+APP_MODULES := libwebrtc_audio_preprocessing
+13、执行ndk-build，现在可以完美编译了。
+
+
+
+nm 命令可以查看静态库或者.o文件里面的内容
