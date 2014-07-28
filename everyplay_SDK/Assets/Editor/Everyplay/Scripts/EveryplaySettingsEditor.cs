@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.IO;
 
+//如果想在Inspector上给脚本绘图，就一定要加上这个属性，不然Inspector上面就只显示脚本的public变量
 [CustomEditor(typeof(EveryplaySettings))]
 public class EveryplaySettingsEditor : Editor
 {
@@ -24,6 +25,8 @@ public class EveryplaySettingsEditor : Editor
     [MenuItem("Edit/Everyplay Settings")]
     public static void ShowSettings()
     {
+		//Resources.Load只能加载Resources文件夹下面的资源，所以需要通过CreateEveryplaySettings()
+		//把脚本添加到Resources文件夹
         EveryplaySettings settingsInstance = (EveryplaySettings)Resources.Load(settingsFile);
 
         if(settingsInstance == null) {
@@ -33,6 +36,8 @@ public class EveryplaySettingsEditor : Editor
         if(settingsInstance != null) {
             EveryplayPostprocessor.ValidateAndUpdateFacebook();
             EveryplayLegacyCleanup.Clean(false);
+			//Selection用来在编辑器中访问选择的对象
+			//设置编辑器当前活动的对象是settingsInstance
             Selection.activeObject = settingsInstance;
         }
     }
@@ -45,7 +50,8 @@ public class EveryplaySettingsEditor : Editor
                 Selection.activeObject = null;
                 return;
             }
-
+			//target是Editor类中一个变量，返回的是当前Inspector中选择的对象，即由
+			//Selection.activeObject设置的那个对象
             currentSettings = (EveryplaySettings)target;
             bool showAndroidSettings = CheckForAndroidSDK();
 
@@ -132,7 +138,7 @@ public class EveryplaySettingsEditor : Editor
 
     private static EveryplaySettings CreateEveryplaySettings()
     {
-	//创建EveryplaySettings的脚本化对象
+	//ScriptableObject用来处理不需要依赖游戏对象的对象，最常用的是用来处理只存储数据的资源
         EveryplaySettings everyplaySettings = (EveryplaySettings)ScriptableObject.CreateInstance(typeof(EveryplaySettings));
 
         if(everyplaySettings != null) {
@@ -177,6 +183,7 @@ public class EveryplaySettingsEditor : Editor
         return false;
     }
 
+	//当scriptableObject被销毁的时候会执行
     void OnDisable()
     {
         if(currentSettings != null) {

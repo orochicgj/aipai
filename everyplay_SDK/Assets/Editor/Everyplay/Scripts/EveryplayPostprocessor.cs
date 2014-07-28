@@ -82,6 +82,7 @@ public static class EveryplayPostprocessor
         SetEveryplayEnabledForTarget(BuildTargetGroup.Android, true);
     }
 
+	//生成EveryplayConfig.h文件，里面只有两行代码
     private static void CreateEveryplayConfig(string path)
     {
         try {
