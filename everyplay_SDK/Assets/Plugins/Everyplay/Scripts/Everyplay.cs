@@ -755,7 +755,7 @@ public class Everyplay : MonoBehaviour
     private static void AddTestButtons(GameObject gameObject) {
         Texture2D textureAtlas = (Texture2D)Resources.Load("everyplay-test-buttons", typeof(Texture2D));
         if(textureAtlas != null) {
-		//添加EveryplayRecButtons组件到游戏物体
+		//添加EveryplayRecButtons组件到gameObject
             EveryplayRecButtons recButtons = gameObject.AddComponent<EveryplayRecButtons>();
             if(recButtons != null) {
                 recButtons.atlasTexture = textureAtlas;

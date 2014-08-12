@@ -13,6 +13,7 @@ using Everyplay.XCodeEditor;
 public static class EveryplayPostprocessor
 {
     [PostProcessBuild(1080)]
+	//path指向的是编译时存放生成文件的地方
     public static void OnPostProcessBuild(BuildTarget target, string path)
     {
         EveryplaySettings settings = (EveryplaySettings)Resources.Load(EveryplaySettingsEditor.settingsFile);
@@ -393,6 +394,7 @@ public static class EveryplayPostprocessor
     {
         string targetDefine = "";
 
+		//如果是iPhone平台，那么声明一个标识EVERYPLAY_IPHONE
         if(target == BuildTargetGroup.iPhone) {
             targetDefine = "EVERYPLAY_IPHONE";
         }
@@ -411,6 +413,8 @@ public static class EveryplayPostprocessor
     private static void SetScriptingDefineSymbolForTarget(BuildTargetGroup target, string targetDefine, bool enabled)
     {
         #if !UNITY_3_5
+		//获得对应target平台的一些用户自定义编译符号。如果任何人都没设置，应该是个空串。
+		//如果游戏有其他人设置了，那么先清空，以免对我们造成影响
         string defines = PlayerSettings.GetScriptingDefineSymbolsForGroup(target);
 
         defines = defines.Replace(targetDefine, "");
@@ -424,7 +428,8 @@ public static class EveryplayPostprocessor
                 defines = targetDefine;
             }
         }
-
+		//把之前声明的对应平台的标识，设置进对应的平台
+		//
         PlayerSettings.SetScriptingDefineSymbolsForGroup(target, defines);
         #endif
     }

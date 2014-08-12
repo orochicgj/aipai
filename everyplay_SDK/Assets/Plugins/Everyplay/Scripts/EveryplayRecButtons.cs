@@ -105,6 +105,7 @@ public class EveryplayRecButtons : MonoBehaviour
         containerScaling = GetScalingByResolution();
 
         // Texture atlas sources
+		//定位选出按钮在图片中的位置
         editVideoAtlasSrc = new TextureAtlasSrc(112, 19, 0, 0, containerScaling);
         faceCamAtlasSrc = new TextureAtlasSrc(103, 19, 116, 0, containerScaling);
         openEveryplayAtlasSrc = new TextureAtlasSrc(178, 23, 0, 23, containerScaling);
@@ -118,6 +119,7 @@ public class EveryplayRecButtons : MonoBehaviour
         bgAtlasSrc = new TextureAtlasSrc(256, 6, 0, 178, containerScaling);
         buttonAtlasSrc = new TextureAtlasSrc(220, 64, 0, 190, containerScaling);
 
+		//Mathf.RoundToInt(x)返回最接近x的一个整数
         buttonTitleHorizontalMargin = Mathf.RoundToInt(buttonTitleHorizontalMargin * containerScaling);
         buttonTitleVerticalMargin = Mathf.RoundToInt(buttonTitleVerticalMargin * containerScaling);
         buttonMargin = Mathf.RoundToInt(buttonMargin * containerScaling);
@@ -163,6 +165,7 @@ public class EveryplayRecButtons : MonoBehaviour
 
     private void SetButtonVisible(Button button, bool visible)
     {
+		//检测button是否是容器的一个元素
         if(visibleButtons.Contains(button)) {
             if(!visible) {
                 visibleButtons.Remove(button);
@@ -426,8 +429,10 @@ public class EveryplayRecButtons : MonoBehaviour
         }
     }
 
+	//通过分辨率设置缩放系数
     private float GetScalingByResolution()
     {
+		//Mathf是一个常用数学函数集合
         int high = Mathf.Max(Screen.height, Screen.width);
         int low = Mathf.Min(Screen.height, Screen.width);
 

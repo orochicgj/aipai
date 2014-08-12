@@ -91,7 +91,7 @@ public class EveryplaySettingsEditor : Editor
                 if(iosSupportEnabled != currentSettings.iosSupportEnabled) {
 					//如果支持就给EverypalySettings的属性赋值
                     currentSettings.iosSupportEnabled = iosSupportEnabled;
-					
+					//为对应的平台设置编译标识
                     EveryplayPostprocessor.SetEveryplayEnabledForTarget(BuildTargetGroup.iPhone, currentSettings.iosSupportEnabled);
                     //当currentSettings发生改变，会自动把值保存到硬盘
 					EditorUtility.SetDirty(currentSettings);
