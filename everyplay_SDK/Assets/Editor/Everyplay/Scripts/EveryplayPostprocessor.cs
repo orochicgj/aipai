@@ -19,7 +19,9 @@ public static class EveryplayPostprocessor
         EveryplaySettings settings = (EveryplaySettings)Resources.Load(EveryplaySettingsEditor.settingsFile);
 
         if(settings != null) {
+			//检查是否勾选了对应平台。如果没有勾选对应的平台，sdk不会打包进xcode项目
             if(settings.IsEnabled) {
+				//检查是否填写了正确的key
                 if(settings.IsValid) {
                     if(target == BuildTarget.iPhone) {
                         PostProcessBuild_iOS(path, settings.clientId);
@@ -28,6 +30,8 @@ public static class EveryplayPostprocessor
                         PostProcessBuild_Android(path, settings.clientId);
                     }
                 }
+				//如果没有填写正确的key，SetEveryplayEnabledForTarget传的值是false，将不会设置
+				//everyplay的编译符号，没有这个符号也就不会启动sdk
                 else {
                     Debug.LogError("Everyplay will be disabled because client id, client secret or redirect URI was not valid.");
                     if(target == BuildTarget.iPhone) {
