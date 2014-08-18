@@ -44,7 +44,7 @@ public class EveryplayRecButtons : MonoBehaviour
         }
     }
 
-    private delegate void ButtonTapped();
+    private delegate void ButtonTapped();  
 
     private class Button
     {
@@ -96,7 +96,7 @@ public class EveryplayRecButtons : MonoBehaviour
     private Button startRecordingButton;
     private Button stopRecordingButton;
     private ToggleButton faceCamToggleButton;
-    private Button tappedButton = null;
+    private Button tappedButton = null; //此button是表示点击的时候选中的那个button
     private List<Button> visibleButtons;
 
     void Awake()
@@ -139,6 +139,7 @@ public class EveryplayRecButtons : MonoBehaviour
         bgFooterAtlasSrc.normalizedAtlasRect.height = -bgFooterAtlasSrc.normalizedAtlasRect.height;
 
         // Set initially visible buttons
+		//设置初始化后，那些按钮是可见的
         SetButtonVisible(startRecordingButton, true);
         SetButtonVisible(openEveryplayButton, true);
         SetButtonVisible(faceCamToggleButton, true);
@@ -149,6 +150,7 @@ public class EveryplayRecButtons : MonoBehaviour
             stopRecordingButton.enabled = false;
         }
 
+		//给事件注册方法
         Everyplay.RecordingStarted += RecordingStarted;
         Everyplay.RecordingStopped += RecordingStopped;
         Everyplay.ReadyForRecording += ReadyForRecording;
@@ -157,6 +159,7 @@ public class EveryplayRecButtons : MonoBehaviour
 
     void Destroy()
     {
+		//删除注册到事件的方法
         Everyplay.RecordingStarted -= RecordingStarted;
         Everyplay.RecordingStopped -= RecordingStopped;
         Everyplay.ReadyForRecording -= ReadyForRecording;
@@ -292,18 +295,23 @@ public class EveryplayRecButtons : MonoBehaviour
             tappedButton = null;
         }
         #else
+		//Input.touches返回上一帧的每个触摸动作
         foreach(Touch touch in Input.touches) {
+			//touch.phase触摸阶段  TouchPhase.Began手指开始触摸到屏幕
             if(touch.phase == TouchPhase.Began) {
                 foreach(Button button in visibleButtons) {
+					//Rect.Contains(vector2)判断点是不是在Rect所定义的矩形里面
                     if(button.screenRect.Contains(new Vector2(touch.position.x - containerOffset.x, Screen.height - touch.position.y - containerOffset.y))) {
                         tappedButton = button;
                     }
                 }
             }
+			//手指离开屏幕的时候执行
             else if(touch.phase == TouchPhase.Ended) {
                 foreach(Button button in visibleButtons) {
                     if(button.screenRect.Contains(new Vector2(touch.position.x - containerOffset.x, Screen.height - touch.position.y - containerOffset.y))) {
                         if(button.onTap != null) {
+							//执行委托引用的函数
                             button.onTap();
                         }
                     }
