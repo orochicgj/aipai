@@ -1,0 +1,13 @@
+version: 1.5.2
+apkFileName: smali.apk
+isFrameworkApk: false
+usesFramework:
+  ids:
+  - 1
+sdkInfo:
+  minSdkVersion: '14'
+  targetSdkVersion: '19'
+packageInfo:
+  cur_package: com.example.smali
+  orig_package: com.example.smali
+compressionType: false

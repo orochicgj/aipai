@@ -1,0 +1,11 @@
+记录我的第一个用apktool做smali注入的demo
+
+1、对于demo级别的工程，在activity_main.xml的Graphical Layout里面拖动控件来搭界面是非常方便快捷的
+
+2、新版本的adt会自动生成一个appcompatv7包，这个包是兼容android4.0以下的版本可以使用android4.0的界面。用这种工程生成的apk，解包的
+时候没有问题，但是重新打包的时候会报很多错，而且错误不大好解决。在新建工程的时候选择最小SDK版本是4.0以上，这样就不会生成appcompatV
+7这个包，这种工程既可以解包，也可以打包，不会报错。
+
+3、查看smali文件夹，可以发现以下几点：
+a、android的监听器也会被解析为一个类，所以会有MainActivity$1.smali和MainActivity$2.smali文件。
+b、smali的注释是用的#
