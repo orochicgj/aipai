@@ -1,0 +1,14 @@
+测试
+drawArray
+drawElementArray的区别
+
+
+稍后整理
+
+glDrawArrays
+如果是用这个函数画三角形，只需要定义顶点数组就可以了（GL_ARRAY_BUFFER），通过GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, and GL_TRIANGLES are accepted.这三个参数来控制怎么画三角形。可以参考这个链接：
+http://blog.csdn.net/xiajun07061225/article/details/7455283
+切记：没有规定哪个点必须是起始点，但是如果假设了一个起始点后，其他点的相对关系也就确定了
+
+glDrawElements
+如果是用这个函数画三角形，虽然他也接受GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, and GL_TRIANGLES are accepted.这几个参数，但是不起作用，一定要定义顶点数组和索引数组（GL_ARRAY_BUFFER or GL_ELEMENT_ARRAY_BUFFER.）。而且只能通过索引数组规定的顺序画三角形，GL_TRIANGLE_FAN参数不起作用。
