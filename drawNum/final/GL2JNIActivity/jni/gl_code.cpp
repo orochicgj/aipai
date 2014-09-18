@@ -137,8 +137,8 @@ bool drawDigital(const char*str, GLfloat x, GLfloat y, GLfloat factor){
 		flag = 1;
 		resetVertices(factor);
 	}
-	GLfloat offset1 = 0.4f * factor; //设置数字之间的间隔，间隔为数字1的宽度（因为数字的每个笔画都设为0.4个单位）
-	GLfloat offset2 = 2.0f * factor; //每个数字缩小后所占的宽度
+	GLfloat offset1 = 0.4f * factor; 
+	GLfloat offset2 = 2.0f * factor;
 	GLfloat offset = 0.0f;
 	for(int i = 0; i < length; i++){
 		offset = (offset1 + offset2) * i;
