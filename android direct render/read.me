@@ -1,0 +1,11 @@
+因为此demo是用来模拟hook的。
+android系统的surfaceflinge是把图像渲染到fbo（0，系统默认的），这个fbo绑定的是一个renderbuffer。
+这个demo就是先模拟这个过程，就是用一个renderebuffer绑定到自己定义的fbo中，然后从renderbuffer中拿数据。
+这里还应用到了android快速读取纹理的技术
+
+
+不过程序写的有点问题，不能保证renderbuffer有数据而且eglimage也有数据
+
+不想再改了，但是这个demo能看到是怎么用eglimage的。权当作android快速读取纹理的demo来看吧。
+
+主要是留意android.mk是怎么写的，需要依赖android源码包。此demo是可以用的，能够看出读取纹理像素特别快
