@@ -1,0 +1,30 @@
+﻿生成启动时间为 2014/10/23 18:31:45。
+     1>项目“E:\github\CMDProject\CMDProject\CMDProject.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Debug\CMDProject.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         所有输出均为最新。
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\CMDProject.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt CMDProject.cpp
+         CMDProject.cpp
+     1>e:\github\cmdproject\cmdproject\cmdproject.cpp(38): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(371) : 参见“sprintf”的声明
+       ManifestResourceCompile:
+         所有输出均为最新。
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\github\CMDProject\Debug\CMDProject.exe" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:"Debug\CMDProject.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\github\CMDProject\Debug\CMDProject.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\github\CMDProject\Debug\CMDProject.lib" /MACHINE:X86 Debug\CMDProject.exe.embed.manifest.res
+         Debug\CMDProject.obj
+         Debug\stdafx.obj
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\CMDProject.exe.embed.manifest" /manifest Debug\CMDProject.exe.intermediate.manifest "C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
+         所有输出均为最新。
+       LinkEmbedManifest:
+         所有输出均为最新。
+         CMDProject.vcxproj -> E:\github\CMDProject\Debug\CMDProject.exe
+       FinalizeBuildStatus:
+         正在删除文件“Debug\CMDProject.unsuccessfulbuild”。
+         正在对“Debug\CMDProject.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\github\CMDProject\CMDProject\CMDProject.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:01.71
