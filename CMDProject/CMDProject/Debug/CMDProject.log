@@ -1,4 +1,4 @@
-﻿生成启动时间为 2014/10/24 17:07:42。
+﻿生成启动时间为 2014/10/24 18:22:05。
      1>项目“E:\github\CMDProject\CMDProject\CMDProject.vcxproj”在节点 2 上(build 个目标)。
      1>InitializeBuildStatus:
          正在创建“Debug\CMDProject.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
@@ -6,7 +6,7 @@
          所有输出均为最新。
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\CMDProject.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt CMDProject.cpp
          CMDProject.cpp
-     1>e:\github\cmdproject\cmdproject\cmdproject.cpp(128): warning C4244: “初始化”: 从“std::streamoff”转换到“unsigned int”，可能丢失数据
+     1>e:\github\cmdproject\cmdproject\cmdproject.cpp(140): warning C4244: “初始化”: 从“std::streamoff”转换到“unsigned int”，可能丢失数据
        ManifestResourceCompile:
          所有输出均为最新。
        Link:
@@ -26,4 +26,4 @@
 
 生成成功。
 
-已用时间 00:00:06.90
+已用时间 00:00:02.24

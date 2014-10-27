@@ -12,13 +12,32 @@ inline BYTE toHex(const BYTE &x)
 	return x > 9 ? x + 55 : x + 48;
 }
 
+CStringArray valid_user;
+
 CString generateUrlDate();
 CString generateUrlKeyWord(CString &sIn);
 CString generateUrlPage(int iPage);
 int searchLocation(CString &filePath, CString &keyWord);
+int checkUser(CString string_id);
 
 int _tmain(int argc, _TCHAR* argv[])
 {	
+	/* add valid user */
+	valid_user.Add(_T("mr_timon"));
+	valid_user.Add(_T("mr_pumbaa"));
+	valid_user.Add(_T("star_patrick"));
+	valid_user.Add(_T("乐乐是我的哦"));
+	valid_user.Add(_T("457800643xc"));
+	valid_user.Add(_T("lingzhiji服饰旗舰店"));
+	valid_user.Add(_T("呢好美"));
+	//valid_user.Add(_T("star"));
+	//valid_user.Add(_T("lele"));
+
+	if(checkUser(argv[2])){
+		std::cout << std::endl << std::endl << "       you are not a valid user!          " << std::endl << std::endl << std::endl;
+		return 0;
+	}
+
 	CString URL;
 	CString url_date;
 	CString url_spm = _T("spm=1.7274553.1997520841.1");
@@ -27,15 +46,25 @@ int _tmain(int argc, _TCHAR* argv[])
 	CString url_head = _T("http://s.taobao.com/search?");
 	CString url_page;
 
-	CString string_keyWord = _T("儿童 防紫外线 帽子");
-	CString string_id = _T("mr_timon");
 	CString filePath = _T("dist");
+	//CString string_keyWord = _T("儿童防紫外线帽子");
+	//CString string_id = _T("mr_timon");
+	CString string_keyWord = argv[1];
+	CString string_id = argv[2];
+
 
 	url_date = _T("initiative_id=tbindexz_") + generateUrlDate();
 	url_keyWord = _T("q=") + generateUrlKeyWord(string_keyWord);
 
-	for(int i = 1; i <= 1; i++){
+	for(int i = 1; i <= 100; i++){
 		url_page = generateUrlPage(i);
+		if((i - 1)%10 == 0){
+			std::cout << "     searching";
+			for(int j = 0; j < i/10; j++){
+				std::cout << ".";
+			}
+			std::cout << std::endl;
+		}
 		if(i != 1){
 			URL = url_head + url_keyWord + _T("&") + url_spm + _T("&") + url_option+ _T("&") + url_date + _T("&") + url_page;
 		}else{
@@ -43,17 +72,17 @@ int _tmain(int argc, _TCHAR* argv[])
 		}
 
 		/*   这里有资源链接的话，可以把对应的资源下载下来   */
-		URL = _T("http://www.jojomamanbebe.co.uk/products/images/large/B2755C.jpg");
+		//URL = _T("http://www.jojomamanbebe.co.uk/products/images/large/B2755C.jpg");
 		
 		HRESULT result =  URLDownloadToFile(0, URL, filePath, 0, NULL);
 		if(result == S_OK){
-			std::cout << "down\n";
+			//std::cout << "down\n";
 			if(!searchLocation(filePath,string_id)){
-				std::cout << "page = " << i << std::endl;
+				std::cout << "            page = " << i << std::endl << std::endl << std::endl;
 				break;
 			}else{
 				if(i == 100)
-					std::cout << "sorry........" << std::endl;
+					std::cout << std::endl << std::endl << "*************  sorry,we don't have found it  *************" << std::endl << std::endl << std::endl ;
 			}
 		}else{
 			std::cout << "URLDownloadToFile failed\n";
@@ -61,13 +90,14 @@ int _tmain(int argc, _TCHAR* argv[])
 		}
 	}
 
-	std::cout << "real_url = " << URL << std::endl;
+	//std::cout << "real_url = " << URL << std::endl;
+
 	std::ofstream fout("currentURL.txt");
 	fout << URL;
 	fout.flush();
 	fout.close();
 	
-	getchar();
+	//getchar();
 	return 0;
 }
 
@@ -89,7 +119,7 @@ CString generateUrlDate(){
 }
 
 CString generateUrlKeyWord(CString &sIn){
-	std::cout << "key word length = " << sIn.GetLength() << std::endl;
+	//std::cout << "key word length = " << sIn.GetLength() << std::endl;
 	CString sOut;
 	BYTE buf[4];
 	for( int ix = 0; ix < sIn.GetLength(); ix++){
@@ -132,19 +162,37 @@ int searchLocation(CString &filePath, CString &ID){
 		is.close();
 		flag = std::strstr(buffer,ID);
 		if(flag != NULL){
-			std::cout << "find it" << std::endl;
+			std::cout << std::endl << std::endl << "            find it" << std::endl;
+			
+			std::ofstream ffout("current.html");
+			ffout << buffer;
+			ffout.flush();
+			ffout.close();
+
 		}else{
-			std::cout << "not find in this page" << std::endl;
+			//std::cout << "not find in this page" << std::endl;
 			flag = NULL;
 			return 1;
 		}
 	}else{
-		std::cout << "read File(dist) to buffer error" << std::endl;
+		std::cout << "            read File(dist) to buffer error" << std::endl;
 		return 1;
 	}
 	delete [] buffer;
 	flag = NULL;
 	return 0;
+}
+
+int checkUser(CString string_id){
+	int count = valid_user.GetCount();
+	//std::cout << " i ============= " << count << std::endl;
+	for(int i = 0; i < count; i++){
+		if(string_id == valid_user.GetAt(i))
+			return 0;
+		else 
+			continue;
+	}
+	return 1;
 }
 
 
