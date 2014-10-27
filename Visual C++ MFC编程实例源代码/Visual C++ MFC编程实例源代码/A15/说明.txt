@@ -1,2 +1,0 @@
-更新用户界面
-以及如何激活所有菜单项（在CMainFrame::CMainFrame()中）

@@ -1,7 +1,0 @@
-; WzdDllRc.def : Declares the module parameters for the DLL.
-
-LIBRARY      "WzdDllRc"
-DESCRIPTION  'WzdDllRc Windows Dynamic Link Library'
-
-EXPORTS
-    ; Explicit exports can go here

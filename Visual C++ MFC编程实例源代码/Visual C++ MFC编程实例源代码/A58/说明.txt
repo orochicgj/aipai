@@ -1,1 +1,0 @@
-用一个类CWzdBitmap来画一张图
