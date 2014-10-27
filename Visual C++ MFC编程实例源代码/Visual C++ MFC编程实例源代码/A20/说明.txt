@@ -1,0 +1,1 @@
+send a WM_COMMAND with the menu command id

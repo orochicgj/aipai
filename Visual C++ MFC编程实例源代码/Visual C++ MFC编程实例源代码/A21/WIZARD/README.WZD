@@ -1,0 +1,68 @@
+/////////////////////////////////////////////////////////////////////
+// Modify any class that owns a window.
+/////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////
+// Popup menu from scratch.
+/////////////////////////////////////////////////////////////////////
+
+// 1) create popup menu class object and menu object
+	CMenu menu;
+	menu.CreatePopupMenu();
+   
+// 2) to add plain menu item
+	menu.AppendMenu(0, IDC_WZD1_TYPE, "Wzd&1");
+
+// 3) to add menu item with check mark
+	menu.AppendMenu(MF_CHECKED, IDC_WZD2_TYPE, "Wzd&2");
+
+// 4) to add a separator
+	menu.AppendMenu(MF_SEPARATOR, 0, "");
+
+// 5) to add a disabled(greyed) menu item
+	menu.AppendMenu(MF_GRAYED, IDC_WZD3_TYPE, "Wzd&3");
+
+// 6) to add menu item with check mark
+	menu.AppendMenu(0, IDC_WZD4_TYPE, "Wzd&4");
+
+// 7) to add a radio dot
+	menu.CheckMenuRadioItem(IDC_WZD3_TYPE,IDC_WZD4_TYPE,IDC_WZD4_TYPE,MF_BYCOMMAND);
+
+// 8) display popup menu at cursor position
+	CPoint pt;
+	GetCursorPos(&pt); 
+	menu.TrackPopupMenu(TPM_RIGHTBUTTON, pt.x, pt.y, this);
+
+// 9) destroy menu
+	menu.DestroyMenu();
+
+/////////////////////////////////////////////////////////////////////
+// Popup menu from a menu resource.
+/////////////////////////////////////////////////////////////////////
+
+// 1) load a menu from the resources
+	menu.LoadMenu(IDR_WZD_MENU);
+
+// 2) get a pointer to actual popup menu
+	CMenu* pPopup = menu.GetSubMenu(0);
+
+// 3) to disable a menu item entry by menu command
+	pPopup->EnableMenuItem( ID_POPUP_WZD1, MF_BYCOMMAND|MF_GRAYED );
+
+// 4) to check a menu item by zero based position
+	pPopup->CheckMenuItem( 2,MF_BYPOSITION|MF_CHECKED);
+
+// 5) to display menu at current point
+	GetCursorPos(&pt); 
+	pPopup->TrackPopupMenu(TPM_RIGHTBUTTON, pt.x, pt.y, this);
+
+// 6) to destroy
+	menu.DestroyMenu();
+
+
+
+/////////////////////////////////////////////////////////////////////
+// From: Visual C++ MFC Programming by Example by John E. Swanke
+// Copyright (C) 1998 jeswanke. All rights reserved.
+/////////////////////////////////////////////////////////////////////
+

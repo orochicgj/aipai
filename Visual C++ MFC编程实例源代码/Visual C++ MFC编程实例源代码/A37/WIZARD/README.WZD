@@ -1,0 +1,33 @@
+/////////////////////////////////////////////////////////////////////
+// Modify a Frame window (Mainframe or Childframe)
+/////////////////////////////////////////////////////////////////////
+
+// 1) embed a CSplitterWnd class in this class
+	CSplitterWnd m_wndSplitter;
+
+
+// 2) use the ClassWizard to override OnCreateClient()
+BOOL CChildFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext) 
+{
+
+// 3) create the splitter windows
+	if (!m_wndSplitter.Create(this,
+			2,					// maximum rows (maximum == 2)
+			1,					// maximum columns (maximum == 2)
+			CSize(5,5),			// minimum pane size in pixels
+			pContext))
+	{
+		TRACE0("Failed to Create Splitter Window\n");
+		return FALSE;
+	}
+
+// 4) return TRUE	
+	return TRUE; //CMDIChildWnd::OnCreateClient(lpcs, pContext);
+}
+
+
+/////////////////////////////////////////////////////////////////////
+// From: Visual C++ MFC Programming by Example by John E. Swanke
+// Copyright (C) 1998 jeswanke. All rights reserved.
+/////////////////////////////////////////////////////////////////////
+

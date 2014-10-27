@@ -1,0 +1,24 @@
+/////////////////////////////////////////////////////////////////////
+// Edit Toolbar
+/////////////////////////////////////////////////////////////////////
+
+// 1) Use the Toolbar Editor to increase the size of a button.
+
+// 2) Use the Bitmap Editor to draw larger buttons.
+
+// 3) To manually increase the size of your toolbar buttons:
+	// set toolbar size to 32 by 32 pixels
+	SIZE sizeButton, sizeImage;
+	sizeImage.cx = 25;					// size of button image in supplied bitmap
+	sizeImage.cy = 25;
+	sizeButton.cx = sizeImage.cx + 7;	// size of button that toolbar should create for this button
+	sizeButton.cy = sizeImage.cy + 7;
+	m_wndToolBar.SetSizes(sizeButton, sizeImage);
+
+NOTE: this example contains an enlarged standard toolbar bitmap on the CD
+
+/////////////////////////////////////////////////////////////////////
+// From: Visual C++ MFC Programming by Example by John E. Swanke
+// Copyright (C) 1998 jeswanke. All rights reserved.
+/////////////////////////////////////////////////////////////////////
+

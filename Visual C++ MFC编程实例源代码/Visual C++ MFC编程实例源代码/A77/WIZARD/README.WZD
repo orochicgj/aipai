@@ -1,0 +1,90 @@
+/////////////////////////////////////////////////////////////////////
+// Example files...
+/////////////////////////////////////////////////////////////////////
+
+WzdInfo.cpp -- an example data class
+WzdInfo.h
+
+/////////////////////////////////////////////////////////////////////
+// Array of pointers
+/////////////////////////////////////////////////////////////////////
+
+// 1) include "afxtempl.h"
+
+// 2) create array class object
+	CArray<CWzdInfo,CWzdInfo&> m_WzdClassArray;
+
+
+// 3) add to array of pointers
+	CWzdInfo *pInfo;
+	m_WzdPtrArray.SetSize(10);
+	m_WzdPtrArray[4]=new CWzdInfo("eight",10);
+	m_WzdPtrArray[6]=new CWzdInfo("nine",14);
+	m_WzdPtrArray[8]=new CWzdInfo("ten",14);
+
+
+// 4) iterate the pointer array
+	for (i=0;i<m_WzdPtrArray.GetUpperBound();i++)
+	{
+		pInfo=m_WzdPtrArray[i];
+
+		/////
+
+	}
+
+// 5) remove from pointer array
+	pInfo=m_WzdPtrArray[6];
+	m_WzdPtrArray.RemoveAt(6);
+
+	// (make sure you delete this object at some point)
+	delete pInfo;
+
+// 6) destroy an array of pointers and the objects they point to
+	while (m_WzdPtrArray.GetUpperBound()>-1)
+	{
+		delete m_WzdPtrArray[0];
+		m_WzdPtrArray.RemoveAt(0);
+	}
+
+/////////////////////////////////////////////////////////////////////
+// Array of class objects...
+/////////////////////////////////////////////////////////////////////
+
+// 1) include "afxtempl.h"
+
+// 2) create array class object
+	CArray<CWzdInfo *,CWzdInfo *> m_WzdPtrArray;
+
+// 3) add to class array
+	CWzdInfo info1("first",1);
+	CWzdInfo info2("new",1);
+	CWzdInfo info3("newer",1);
+	m_WzdClassArray.SetSize(10);
+	m_WzdClassArray[2]=info1;
+	m_WzdClassArray[3]=info2;
+	m_WzdClassArray[9]=info3;
+
+// 4) iterate the class array
+	CWzdInfo info;
+	for (int i=0;i<m_WzdClassArray.GetUpperBound();i++)
+	{
+		info=m_WzdClassArray[i];
+
+		/////
+
+	}
+
+// 5) remove from class array
+	info=m_WzdClassArray[3];
+	m_WzdClassArray.RemoveAt(3);
+
+// 6) destroy array
+	m_WzdClassArray.RemoveAll(); // or just let it deconstruct itself
+
+
+
+/////////////////////////////////////////////////////////////////////
+// From: Visual C++ MFC Programming by Example by John E. Swanke
+// Copyright (C) 1998 jeswanke. All rights reserved.
+/////////////////////////////////////////////////////////////////////
+

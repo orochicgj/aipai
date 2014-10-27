@@ -1,0 +1,41 @@
+/////////////////////////////////////////////////////////////////////
+// Modify any class.
+/////////////////////////////////////////////////////////////////////
+
+	HICON hicon;
+
+// 1) to load from application resources
+	HICON hicon=AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+
+// 2) to then draw that icon
+	pDC->DrawIcon(0,0,hicon);
+
+
+// 3) to load from an .ico disk file
+	hicon = (HICON)LoadImage(
+		NULL,				// handle of the instance that contains the image
+		"Wzd.ico",			// name or identifier of image
+		IMAGE_ICON,			// type of image-- can also be IMAGE_CURSOR or IMAGE_ICON 
+		0,0,				// desired width and height
+		LR_LOADFROMFILE);	// load flags-- with LR_LOADTRANSPARENT makes transparent to bkgrnd
+
+// 4) to draw
+	pDC->DrawIcon(50,50,hicon);
+
+// 5) when loaded using LoadImage(), you must destroy icon:
+ 	DestroyIcon(hicon);
+
+// 6) to load from an exe or dll file
+	HINSTANCE hinst=AfxGetInstanceHandle();
+	hicon=ExtractIcon(hinst,"Debug\\wzd.exe",1); // gets the second icon (-1 returns # of icons)
+
+// 7) draw and destroy as before
+	pDC->DrawIcon(100,100,hicon);
+	DestroyIcon(hicon);
+
+
+/////////////////////////////////////////////////////////////////////
+// From: Visual C++ MFC Programming by Example by John E. Swanke
+// Copyright (C) 1998 jeswanke. All rights reserved.
+/////////////////////////////////////////////////////////////////////
+

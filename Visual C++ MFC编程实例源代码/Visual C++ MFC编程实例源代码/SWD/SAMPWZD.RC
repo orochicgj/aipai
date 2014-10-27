@@ -1,0 +1,329 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""res\\SampWzd.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\SampWzd.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 217, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About SampleWzd"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "SampleWzd Version 1.0",IDC_STATIC,40,10,119,8,
+                    SS_NOPREFIX
+    LTEXT           "Copyright (C) 1998",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,32,14,WS_GROUP
+END
+
+IDD_PAGE1 DIALOGEX 0, 0, 300, 119
+STYLE DS_MODALFRAME | WS_CHILD | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_CONTEXTHELP | WS_EX_APPWINDOW
+CAPTION "SampleWizard(tm) v1.0--Step One: Pick a Section"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LISTBOX         IDC_LIST1,163,37,122,49,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Please select a Section:",IDC_STATIC,154,25,77,8
+    CONTROL         135,IDC_STATIC,"Static",SS_BITMAP,9,8,20,20
+END
+
+IDD_PAGE2 DIALOG DISCARDABLE  0, 0, 298, 121
+STYLE DS_MODALFRAME | WS_CHILD | WS_CAPTION | WS_SYSMENU
+CAPTION "SampleWizard(tm)--Step Two: Pick a Chapter"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LISTBOX         IDC_LIST1,113,19,178,95,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Please pick a Chapter:",IDC_STATIC,109,7,72,8
+    CONTROL         137,IDC_STATIC,"Static",SS_BITMAP,7,7,20,20
+END
+
+IDD_PAGE3 DIALOG DISCARDABLE  0, 0, 298, 121
+STYLE DS_MODALFRAME | WS_CHILD | WS_CAPTION | WS_SYSMENU
+CAPTION "SampleWizard(tm)--Step Three: Example"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LISTBOX         IDC_LIST1,71,19,220,95,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | 
+                    WS_TABSTOP
+    CONTROL         138,IDC_STATIC,"Static",SS_BITMAP,7,7,53,105
+    LTEXT           "Please pick an Example",IDC_STATIC,66,7,76,8
+END
+
+IDD_PAGE4 DIALOG DISCARDABLE  0, 0, 298, 121
+STYLE DS_MODALFRAME | WS_CHILD | WS_CAPTION | WS_SYSMENU
+CAPTION "SampleWizard(tm)--Step Four: Setup"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         139,IDC_STATIC,"Static",SS_BITMAP,7,7,137,105
+    EDITTEXT        IDC_EDIT1,153,19,127,14,ES_AUTOHSCROLL
+    LTEXT           "What's the root directory of your examples:",IDC_STATIC,
+                    151,7,134,8
+    EDITTEXT        IDC_EDIT2,153,49,127,14,ES_AUTOHSCROLL
+    LTEXT           "Where do you want example files copied:",IDC_STATIC,151,
+                    39,130,8
+    EDITTEXT        IDC_EDIT3,218,97,63,14,ES_AUTOHSCROLL
+    LTEXT           "Substitute Wzd for:",IDC_STATIC,157,100,61,8
+    LTEXT           "A marker (""Wzd"") has been placed in all example source files which you can subtitute for something meaningful here:",
+                    IDC_STATIC,155,69,128,26
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDVERT,147,7,1,105
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,154,67,132,1
+    PUSHBUTTON      "...",IDC_BUTTON1,284,19,12,14
+    PUSHBUTTON      "...",IDC_BUTTON2,284,49,12,14
+END
+
+IDD_PAGE5 DIALOG DISCARDABLE  0, 0, 298, 121
+STYLE DS_MODALFRAME | WS_CHILD | WS_CAPTION | WS_SYSMENU
+CAPTION "SampleWizard(tm)--Step Five: Results"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Copy any example files to target directory.",IDC_CHECK2,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,131,111,146,10
+    CONTROL         "Copy notes to clipboard.",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,18,111,92,10
+    EDITTEXT        IDC_EDIT1,13,10,271,98,ES_MULTILINE | ES_AUTOHSCROLL | 
+                    WS_VSCROLL
+    LTEXT           "Notes:",IDC_STATIC,7,0,22,8
+    LTEXT           "(The book text may contain additional examples.)",
+                    IDC_STATIC,115,1,154,8
+END
+
+IDD_DIALOG1 DIALOG DISCARDABLE  0, 0, 246, 159
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Choose Directory"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,189,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,189,24,50,14
+    EDITTEXT        IDC_EDIT1,21,25,158,14,ES_AUTOHSCROLL
+    LISTBOX         IDC_LIST1,21,51,158,62,LBS_SORT | LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO1,21,132,158,107,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Directory Name:",IDC_STATIC,16,13,52,8
+    LTEXT           "Drives:",IDC_STATIC,14,119,23,8
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "SampleWzd MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "SampleWzd\0"
+            VALUE "LegalCopyright", "Copyright (C) 1998\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "SampWzd.EXE\0"
+            VALUE "ProductName", "SampleWzd Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 210
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_PAGE1, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 293
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 112
+    END
+
+    IDD_PAGE2, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 291
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 114
+    END
+
+    IDD_PAGE3, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 291
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 114
+    END
+
+    IDD_PAGE4, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 296
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 112
+    END
+
+    IDD_PAGE5, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 291
+    END
+
+    IDD_DIALOG1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 239
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 152
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP1             BITMAP  DISCARDABLE     "res\\479010.bmp"
+IDB_BITMAP2             BITMAP  DISCARDABLE     "res\\waterfll.BMP"
+IDB_BITMAP3             BITMAP  DISCARDABLE     "res\\lake.BMP"
+IDB_BITMAP4             BITMAP  DISCARDABLE     "res\\cove.BMP"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About SampleWzd..."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif
+#include "res\SampWzd.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

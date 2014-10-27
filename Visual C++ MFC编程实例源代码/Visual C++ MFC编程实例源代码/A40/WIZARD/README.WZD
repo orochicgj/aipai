@@ -1,0 +1,30 @@
+/////////////////////////////////////////////////////////////////////
+// Modify any class.
+/////////////////////////////////////////////////////////////////////
+
+// 1) to create class object
+	CWzdDialog dlg;
+
+// 2) to initialize member variables of class object
+	CString sName("hello");
+	int nRadio=2;
+	BOOL bCheck=TRUE;
+	dlg.m_sName=sName;
+	dlg.m_nRadio=nRadio;
+	dlg.m_bCheck=bCheck;
+
+// 3) to create dialog box
+	if (dlg.DoModal()==IDOK)
+	{
+
+// 4) if IDOK, retrieve variables
+	    sName=dlg.m_sName;
+	    nRadio=dlg.m_nRadio;
+	    bCheck=dlg.m_bCheck;
+	}
+
+/////////////////////////////////////////////////////////////////////
+// From: Visual C++ MFC Programming by Example by John E. Swanke
+// Copyright (C) 1998 jeswanke. All rights reserved.
+/////////////////////////////////////////////////////////////////////
+

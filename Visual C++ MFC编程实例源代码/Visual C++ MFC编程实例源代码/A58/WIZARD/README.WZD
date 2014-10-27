@@ -1,0 +1,31 @@
+/////////////////////////////////////////////////////////////////////
+// Example files...
+/////////////////////////////////////////////////////////////////////
+
+WzdBtmap.cpp -- bitmap class which draws itself
+WzdBtmap.h
+
+/////////////////////////////////////////////////////////////////////
+// Modify any class with a window.
+/////////////////////////////////////////////////////////////////////
+
+// 1) embed bitmap class in this class
+	CWzdBitmap m_bitmap;
+
+// 2) load bitmap (draws itself at this point)
+	m_bitmap.LoadBitmapEx(IDB_WZD,TRUE);
+
+// 3) draw bitmap to window
+	// get device context to select bitmap into
+	CDC dcComp;
+	dcComp.CreateCompatibleDC(pDC);
+	dcComp.SelectObject(&m_bitmap);
+
+	// draw bitmap
+	pDC->BitBlt(0,0,m_bitmap.m_Width,m_bitmap.m_Height, &dcComp, 0,0,SRCCOPY);
+
+/////////////////////////////////////////////////////////////////////
+// From: Visual C++ MFC Programming by Example by John E. Swanke
+// Copyright (C) 1998 jeswanke. All rights reserved.
+/////////////////////////////////////////////////////////////////////
+

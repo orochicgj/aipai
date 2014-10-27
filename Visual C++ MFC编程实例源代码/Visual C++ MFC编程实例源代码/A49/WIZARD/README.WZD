@@ -1,0 +1,55 @@
+/////////////////////////////////////////////////////////////////////
+// Example files.
+/////////////////////////////////////////////////////////////////////
+
+WzdBttn.cpp -- a CBitmapButton class which converts double left clicks to
+WzdBttn.h			left clicks (to make the button more responsive)
+
+WzdBtmap.cpp -- a bitmap class which creates and maintains its own palette
+WzdBtmap.h
+
+/////////////////////////////////////////////////////////////////////
+// Putting a bitmap on a button face.
+/////////////////////////////////////////////////////////////////////
+
+// 1) use Dialog Editor to select the button and choose the Bitmap option
+
+// 2) embed a CBitmap class in the dialog/view class you want to create the button
+
+// 3) in the OnInitDialog() or OnCreate() handler of dialog/view class, load a 
+// bitmap and tell button about it:
+
+	m_bitmap.LoadBitmapEx(IDB_WZD_BUTTON,TRUE);
+	((CButton *)GetDlgItem(IDC_WZD_BUTTON1))->SetBitmap(m_bitmap);
+
+/////////////////////////////////////////////////////////////////////
+// Defining the four bitmaps of a button.
+/////////////////////////////////////////////////////////////////////
+
+// 1) use the Bitmap Editor to create up to four bitmaps using a text id rather
+// then a numeric id with the exact same name id but with four different appended
+// characters as defined here:
+//		NAMEU -- button's appearance when up
+//		NAMED -- button's appearance when down
+//		NAMEF -- button's appearance when it has focus
+//		NAMEX -- button's appearance when disabled
+
+// 2) use Dialog Editor to add a button control to a dialog template and give it
+// the same name used above without an appended character (i.e. just NAME). Also 
+// give this button the Owner Drawn style.
+
+// 3) use the ClassWizard to subclass the button and change the default CButton
+// class name to CBitmapButton
+
+
+// 4) load the bitmaps into the button class in the initialization of the dialog box:
+	m_bitmapButton.AutoLoad(
+				IDC_WZD_BUTTON,  -- button id
+				this);			 -- parent window
+	
+
+/////////////////////////////////////////////////////////////////////
+// From: Visual C++ MFC Programming by Example by John E. Swanke
+// Copyright (C) 1998 jeswanke. All rights reserved.
+/////////////////////////////////////////////////////////////////////
+

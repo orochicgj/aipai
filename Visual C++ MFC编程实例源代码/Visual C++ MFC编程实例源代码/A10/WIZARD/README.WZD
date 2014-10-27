@@ -1,0 +1,20 @@
+/////////////////////////////////////////////////////////////////////
+// Modify the Mainframe Class.
+/////////////////////////////////////////////////////////////////////
+
+// 1) use the ClassWizard to add a WM_CLOSE handler to this class
+void CMainFrame::OnClose() 
+{
+
+// 2) only call the DefWindowProc() if the user says yes
+	if (AfxMessageBox("Do you really want to exit?",MB_YESNO)==IDYES)
+	{
+		CMDIFrameWnd::OnClose();
+	}
+}
+
+/////////////////////////////////////////////////////////////////////
+// From: Visual C++ MFC Programming by Example by John E. Swanke
+// Copyright (C) 1998 jeswanke. All rights reserved.
+/////////////////////////////////////////////////////////////////////
+

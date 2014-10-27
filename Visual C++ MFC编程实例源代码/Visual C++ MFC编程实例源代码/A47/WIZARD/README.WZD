@@ -1,0 +1,42 @@
+/////////////////////////////////////////////////////////////////////
+// Example files.
+/////////////////////////////////////////////////////////////////////
+
+WzdEdit.cpp -- an edit control class subclassed to convert arrows keys
+WzdEdit.h			to tab keys
+
+/////////////////////////////////////////////////////////////////////
+// Modify any class.
+/////////////////////////////////////////////////////////////////////
+
+// 1) to automatically subclass a control, please see the example in the
+// book using the ClassWizard
+
+// 2) to manually subclass a control
+	HWND hWnd;
+	GetDlgItem(IDC_WZD_EDIT2, &hWnd);
+	m_ctrlEdit2.SubclassWindow(hWnd);
+
+
+// 3) to subclass the edit control of a combo box
+	CComboBox m_ctrlComboBox; // the combo box
+	CEdit m_ctrlComboEditBox; // the subclassed edit box
+
+	:	:	:
+
+	char className[8];
+	CWnd* pWnd = m_ctrlComboBox.GetWindow(GW_CHILD);
+	do {
+		::GetClassName(pWnd->m_hWnd, className, 8);
+		if(!stricmp("Edit", className))
+		{
+			m_ctrlComboEditBox.SubclassWindow(pWnd->m_hWnd);
+		}
+	} while((pWnd = pWnd->GetWindow(GW_HWNDNEXT)));
+
+
+/////////////////////////////////////////////////////////////////////
+// From: Visual C++ MFC Programming by Example by John E. Swanke
+// Copyright (C) 1998 jeswanke. All rights reserved.
+/////////////////////////////////////////////////////////////////////
+

@@ -1,0 +1,52 @@
+/////////////////////////////////////////////////////////////////////
+// Using CTime.
+/////////////////////////////////////////////////////////////////////
+
+	CTime time;
+	CString sDate,sTime,sElapsedTime;
+
+// 1) to get time
+	time=CTime::GetCurrentTime();
+	int year = time.GetYear();
+	int month = time.GetMonth();
+	int day = time.GetDay();
+	int hour = time.GetHour();
+	int minute = time.GetMinute();
+	int second = time.GetSecond();
+	int DayOfWeek = time.GetDayOfWeek();
+
+// 2) to set a time amount
+	CTimeSpan timespan(0,0,1,0); // days,hours,minutes,seconds
+
+// 3) to get elasped time
+	time=CTime::GetCurrentTime();
+	:	:	:
+	timespan = CTime::GetCurrentTime() - time;
+
+// 4) to format time or timespan (see strftime in help for more formats)
+	sDate = time.Format("%m/%d/%y");					//ex: 12/10/98
+	sTime = time.Format("%H:%M:%S");					//ex: 9:12:02
+	sElapsedTime = timespan.Format("%D:%H:%M:%S");		// %D is total elapsed days
+
+/////////////////////////////////////////////////////////////////////
+// Using COleDateTime
+/////////////////////////////////////////////////////////////////////
+
+	COleDateTime datetime; //can also construct from a CTime
+
+// 1) same member functions as CTime, but also two more:
+
+// 2) to get day of year to create Julian date
+	int DayOfYear = datetime.GetDayOfYear();
+
+// 3) to read time from a character string
+	datetime.ParseDateTime("12:12:23 27 January 93");
+
+// 4) COleDateTime will also last past 2037 when CTime will have a meltdown
+
+
+/////////////////////////////////////////////////////////////////////
+// From: Visual C++ MFC Programming by Example by John E. Swanke
+// Copyright (C) 1998 jeswanke. All rights reserved.
+/////////////////////////////////////////////////////////////////////
+

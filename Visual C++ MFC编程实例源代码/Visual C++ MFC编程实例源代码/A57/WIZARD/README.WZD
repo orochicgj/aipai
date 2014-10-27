@@ -1,0 +1,38 @@
+/////////////////////////////////////////////////////////////////////
+// Example files...
+/////////////////////////////////////////////////////////////////////
+
+WzdBtmap.cpp -- a bitmap class which reads a file and creates a bitmap
+WzdBtmap.h
+
+/////////////////////////////////////////////////////////////////////
+// Modify any class with a window.
+/////////////////////////////////////////////////////////////////////
+
+// 1) embed the bitmap in the class
+	CWzdBitmap m_bitmap;
+
+// 2) load bitmap, typically when processing the window's WM_CREATE message
+	m_bitmap.LoadBitmapEx(IDB_WZD,TRUE);
+
+// 3) draw bitmap
+	// get bitmap colors
+	CPalette *pOldPal = pDC->SelectPalette(m_bitmap.GetPalette(),FALSE);
+	pDC->RealizePalette();
+
+	// get device context to select bitmap into
+	CDC dcComp;
+	dcComp.CreateCompatibleDC(pDC);
+	dcComp.SelectObject(&m_bitmap);
+
+	// draw bitmap
+	pDC->BitBlt(0,0,m_bitmap.m_Width,m_bitmap.m_Height, &dcComp, 0,0,SRCCOPY);
+
+	// reselect old palette
+	pDC->SelectPalette(pOldPal,FALSE);
+
+/////////////////////////////////////////////////////////////////////
+// From: Visual C++ MFC Programming by Example by John E. Swanke
+// Copyright (C) 1998 jeswanke. All rights reserved.
+/////////////////////////////////////////////////////////////////////
+

@@ -1,0 +1,3 @@
+CWzdCmdFo
+
+a CommandLineInfo class that parses for addtional command line switches

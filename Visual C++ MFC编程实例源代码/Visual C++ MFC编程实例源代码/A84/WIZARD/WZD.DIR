@@ -1,0 +1,10 @@
+StdAfx.cpp
+WzdDMFC.cpp
+WzdDMFCx.cpp
+WzdDMFC.def
+WzdDMFC.dsp
+WzdDMFC.dsw
+Resource.h
+StdAfx.h
+WzdDMFCx.h
+WzdDMFC.rc

@@ -1,0 +1,43 @@
+/////////////////////////////////////////////////////////////////////
+// Modify any class.
+/////////////////////////////////////////////////////////////////////
+
+// 1) define a new windows message
+#define WM_WZD_MESSAGE WM_USER+1
+
+// 2) define a message map macro for this new message
+#define ON_WZD_MESSAGE() \
+{WM_WZD_MESSAGE, 0, 0, 0, AfxSig_vW, (AFX_PMSG)(AFX_PMSGW)(void \
+(AFX_MSG_CALL CWnd::*)(CWnd *))&OnWzdMessage},
+// NOTE: other values for AfxSig_vW are in AFXMSG_.H
+// NOTE: you could also use the generic ON_MESSAGE macro
+
+
+// 3) send the custom window message
+	AfxGetMainWnd()->SendMessage(WM_WZD_MESSAGE,(UINT)this);	
+
+// 4) define the message handler in the class's include file
+	//{{AFX_MSG(CMainFrame)
+	//}}AFX_MSG
+	afx_msg void OnWzdMessage(CWnd *pWnd); <<<<
+	DECLARE_MESSAGE_MAP()
+
+// 5) add the handler to the class's message map.
+BEGIN_MESSAGE_MAP(CMainFrame, CMDIFrameWnd)
+	//{{AFX_MSG_MAP(CMainFrame)
+	//}}AFX_MSG_MAP
+	ON_WZD_MESSAGE()
+END_MESSAGE_MAP()
+
+// 6) implement the message handler
+void CMainFrame::OnWzdMessage(CWnd *pWnd)
+{
+	pWnd;
+}
+
+
+/////////////////////////////////////////////////////////////////////
+// From: Visual C++ MFC Programming by Example by John E. Swanke
+// Copyright (C) 1998 jeswanke. All rights reserved.
+/////////////////////////////////////////////////////////////////////
+

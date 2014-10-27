@@ -1,0 +1,93 @@
+/////////////////////////////////////////////////////////////////////
+// Modify any class that receives window messages.
+/////////////////////////////////////////////////////////////////////
+
+// 1) use the ClassWizard to override the PreTranslateMessage() function
+BOOL CWzdView::PreTranslateMessage(MSG* pMsg) 
+{
+
+// 2) to process keystrokes when the ALT key is not pressed or is pressed with CTRL key....
+	if (pMsg->message==WM_KEYDOWN)
+	{
+		BOOL bCtrl=::GetKeyState(VK_CONTROL)&0x8000;
+		BOOL bShift=::GetKeyState(VK_SHIFT)&0x8000;
+		BOOL bAlt=::GetKeyState(VK_MENU)&0x8000; //only gets here if CTRL key is pressed
+		switch(pMsg->wParam)
+		{
+			case 'N':
+				if (bAlt&&bShift) //&&bCtrl assumed
+					:	:	:
+
+				else if (bShift&&bCtrl)
+					:	:	:
+
+				else if (bAlt) //&&bCtrl assumed
+					:	:	:
+
+				else if (bCtrl)
+					:	:	:
+
+				else if (bShift)
+					:	:	:
+
+				else
+					:	:	:
+
+				return TRUE; // translated
+
+			case VK_ESCAPE:
+				if (bShift)
+					:	:	:
+
+				return TRUE; // translated
+
+
+			case VK_DELETE:
+					:	:	:
+
+				return TRUE; // translated
+
+			case VK_INSERT:
+					:	:	:
+
+				return TRUE; // translated
+		}
+	}
+
+// 3) to process keystrokes when the ALT key is pressed but not with CTRL key....
+	else if (pMsg->message==WM_SYSKEYDOWN)
+	{
+		BOOL bShift=::GetKeyState(VK_SHIFT)&0x8000;
+		switch(pMsg->wParam)
+		{
+			case 'N':
+				if (bShift)
+					:	:	:
+
+				else
+					:	:	:
+
+				return TRUE; // translated
+
+
+			case VK_DELETE:
+					:	:	:
+
+				return TRUE; // translated
+
+			case VK_INSERT:
+					:	:	:
+
+				return TRUE; // translated
+		}
+	}
+	
+	return CView::PreTranslateMessage(pMsg);
+}
+
+
+/////////////////////////////////////////////////////////////////////
+// From: Visual C++ MFC Programming by Example by John E. Swanke
+// Copyright (C) 1998 jeswanke. All rights reserved.
+/////////////////////////////////////////////////////////////////////
+

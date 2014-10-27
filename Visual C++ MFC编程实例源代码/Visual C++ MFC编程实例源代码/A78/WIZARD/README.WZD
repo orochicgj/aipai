@@ -1,0 +1,88 @@
+/////////////////////////////////////////////////////////////////////
+// Example files.
+/////////////////////////////////////////////////////////////////////
+
+WzdInfo.cpp -- a sample data class to store in a list
+WzdInfo.h
+
+/////////////////////////////////////////////////////////////////////
+// List of Pointers 
+/////////////////////////////////////////////////////////////////////
+
+// 1) include "afxtempl.h"
+
+// 2) create list class object
+	CList<CWzdInfo *,CWzdInfo *> m_WzdPtrList;
+
+// 3) to add pointers to list of pointers
+	m_WzdPtrList.AddTail(new CWzdInfo("eight",10));
+	m_WzdPtrList.AddHead(new CWzdInfo("nine",14));
+	m_WzdPtrList.AddHead(new CWzdInfo("ten",14));
+
+
+// 4) to iterate the pointer list
+	for (pos=m_WzdPtrList.GetHeadPosition();pos;)
+	{
+		CWzdInfo *pInfo=m_WzdPtrList.GetNext(pos);
+
+		/////
+	}
+
+// 5) to find 2nd element in list
+	pos=m_WzdPtrList.FindIndex(1);
+
+// 6) to remove from pointer list
+	pInfo=m_WzdPtrList.GetAt(pos);
+	m_WzdPtrList.RemoveAt(pos);
+	// (make sure you delete this object at some point)
+	delete pInfo;
+
+// 7) to destroy a list of pointers and the objects they point to
+	while (!m_WzdPtrList.IsEmpty())
+	{
+		delete m_WzdPtrList.RemoveHead();
+	}
+
+
+/////////////////////////////////////////////////////////////////////
+// List of Class Objects
+/////////////////////////////////////////////////////////////////////
+
+// 1) include "afxtempl.h"
+
+// 2) create list class object
+	CList<CWzdInfo,CWzdInfo&> m_WzdList;
+
+// 3) to add a class object to a list
+	CWzdInfo info1("first",1);
+	CWzdInfo info2("new",1);
+	CWzdInfo info3("newer",1);
+	m_WzdList.AddTail(info1);
+	m_WzdList.AddHead(info2);
+	m_WzdList.AddHead(info3);
+
+// 4) to iterate the list of objects
+	for (POSITION pos=m_WzdList.GetHeadPosition();pos;)
+	{
+		info=m_WzdList.GetNext(pos);
+
+		/////
+	}
+
+// 5) to find 2nd object in list
+	pos=m_WzdList.FindIndex(1);
+
+// 6) to remove an object from list
+	info=m_WzdList.GetAt(pos);
+	m_WzdList.RemoveAt(pos);
+
+
+// 7) to destroy list of objects
+	m_WzdList.RemoveAll(); // or just let it deconstruct itself
+
+
+/////////////////////////////////////////////////////////////////////
+// From: Visual C++ MFC Programming by Example by John E. Swanke
+// Copyright (C) 1998 jeswanke. All rights reserved.
+/////////////////////////////////////////////////////////////////////
+

@@ -1,0 +1,71 @@
+/////////////////////////////////////////////////////////////////////
+// Example files...
+/////////////////////////////////////////////////////////////////////
+
+WzdStBar.cpp -- status class that supports other controls
+WzdStBar.h
+
+/////////////////////////////////////////////////////////////////////
+// Edit String Table
+/////////////////////////////////////////////////////////////////////
+
+// 1) add ID's to string table that simply define spaces
+// (this will become the width of your control
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_WZDBUTTON  "                  "
+    ID_INDICATOR_WZDPROGRESS "                                                "
+END
+
+/////////////////////////////////////////////////////////////////////
+// Modify Mainframe Class
+/////////////////////////////////////////////////////////////////////
+
+// 1) substitute CWzdStatusBar for CStatusBar in MainFrm.h
+protected:  // control bar embedded members
+	CWzdStatusBar  m_wndStatusBar;
+	CToolBar    m_wndToolBar;
+
+
+
+// 2) add new id's to indicators in Mainfrm.cpp
+static UINT indicators[] =
+{
+	ID_SEPARATOR,           // status line indicator
+	ID_INDICATOR_WZDBUTTON,
+	ID_INDICATOR_WZDPROGRESS,
+	ID_INDICATOR_CAPS,
+	ID_INDICATOR_NUM,
+	ID_INDICATOR_SCRL,
+};
+
+
+// 3) to hide and show a control...
+	m_wndStatusBar.GetButton().ShowWindow(SW_SHOW);
+
+// 4) to increment a progress control...
+	if ((m_nInc+=20)>=100) m_nInc=0;
+	m_wndStatusBar.GetProgressCtrl().SetPos(m_nInc);
+
+
+/////////////////////////////////////////////////////////////////////
+// Process messages from these controls
+/////////////////////////////////////////////////////////////////////
+// button messages from the statusbar can be processed in the same 
+// classes that a menu click can be
+void CMainFrame::OnWzdButton() 
+{
+	// these commands keep a button control from being highlighted
+	SetFocus();
+	m_wndStatusBar.GetButton().SetButtonStyle(BS_PUSHBUTTON);
+
+	// process command
+	:	:	:
+}
+
+
+/////////////////////////////////////////////////////////////////////
+// From: Visual C++ MFC Programming by Example by John E. Swanke
+// Copyright (C) 1998 jeswanke. All rights reserved.
+/////////////////////////////////////////////////////////////////////
+

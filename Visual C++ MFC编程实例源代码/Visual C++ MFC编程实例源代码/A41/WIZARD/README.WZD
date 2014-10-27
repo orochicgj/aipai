@@ -1,0 +1,25 @@
+/////////////////////////////////////////////////////////////////////
+// Modify any class.
+/////////////////////////////////////////////////////////////////////
+
+// 1) to create class object
+	m_pDlg=new CWzdDialog();
+
+// 2) to create the dialog box (which will be initially hidden)
+	m_pDlg->Create(IDD_WZD_DIALOG);
+
+// 3) to show dialog box
+	m_pDlg->ShowWindow(SW_SHOW);
+
+//NOTE: to make a dialog box visible, you can also edit its template's
+// property on the "More Styles" page and click the "Visible" style
+
+// 4) to destroy dialog box
+	m_pDlg->DestroyWindow();
+	
+
+/////////////////////////////////////////////////////////////////////
+// From: Visual C++ MFC Programming by Example by John E. Swanke
+// Copyright (C) 1998 jeswanke. All rights reserved.
+/////////////////////////////////////////////////////////////////////
+

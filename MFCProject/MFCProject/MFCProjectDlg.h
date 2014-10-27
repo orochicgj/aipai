@@ -6,6 +6,9 @@
 #include "afxwin.h"
 #include "afxcmn.h"
 
+struct info{
+	int i;
+};
 
 // CMFCProjectDlg 对话框
 class CMFCProjectDlg : public CDialogEx
@@ -36,6 +39,8 @@ protected:
 	CString string_keyWord;
 	CString string_id;
 	CString showPage;
+	
+	info my_info;
 
 	// 生成的消息映射函数
 	virtual BOOL OnInitDialog();

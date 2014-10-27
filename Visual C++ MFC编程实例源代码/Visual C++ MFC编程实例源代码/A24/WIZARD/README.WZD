@@ -1,0 +1,59 @@
+/////////////////////////////////////////////////////////////////////
+// Example files...
+/////////////////////////////////////////////////////////////////////
+
+WzdTlBar.cpp -- a toolbar class which supports words
+WzdTlBar.h
+
+/////////////////////////////////////////////////////////////////////
+// Edit String Table
+/////////////////////////////////////////////////////////////////////
+
+// 1) define toolbar strings in resources
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_FILE_NEW			"New"
+    IDS_FILE_OPEN			"Open" 
+    IDS_FILE_SAVE			"Save" 
+    IDS_FILE_CUT			"Cut" 
+    IDS_FILE_COPY			"Copy" 
+    IDS_FILE_PASTE			"Paste" 
+    IDS_FILE_PRINT			"Print" 
+    IDS_APP_ABOUT			"About" 
+END
+
+/////////////////////////////////////////////////////////////////////
+// Modify Mainframe Class
+/////////////////////////////////////////////////////////////////////
+
+// 1) in MainFrm.h use new WzdToolBar
+	CWzdToolBar    m_wndToolBar;
+
+
+// 2) associate a resource string with a toolbar command id in MainFrm.cpp
+static TOOLTEXT tooltext[] =
+{
+    ID_FILE_NEW , IDS_FILE_NEW, 
+    ID_FILE_OPEN, IDS_FILE_OPEN, 
+    ID_FILE_SAVE, IDS_FILE_SAVE, 
+    ID_EDIT_CUT , IDS_FILE_CUT, 
+    ID_EDIT_COPY, IDS_FILE_COPY, 
+    ID_EDIT_PASTE, IDS_FILE_PASTE, 
+    ID_FILE_PRINT, IDS_FILE_PRINT, 
+    ID_APP_ABOUT , IDS_APP_ABOUT, 
+};
+#define TOOLTEXT_NUM (sizeof(tooltext)/sizeof(TOOLTEXT))
+
+// 3) call the new CWzdToolBar::LoadToolBarEx() function
+	if (!m_wndToolBar.Create(this) ||
+		!m_wndToolBar.LoadToolBarEx(IDR_MAINFRAME,(TOOLTEXT*)&tooltext,TOOLTEXT_NUM))
+	{
+		TRACE0("Failed to create toolbar\n");
+		return -1;      // fail to create
+	}
+
+/////////////////////////////////////////////////////////////////////
+// From: Visual C++ MFC Programming by Example by John E. Swanke
+// Copyright (C) 1998 jeswanke. All rights reserved.
+/////////////////////////////////////////////////////////////////////
+

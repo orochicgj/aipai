@@ -1,0 +1,83 @@
+/////////////////////////////////////////////////////////////////////
+// Modify any class that can paint a window.
+/////////////////////////////////////////////////////////////////////
+
+// 1) create a pen
+	CPen pen(PS_SOLID,2,RGB(128,128,128));
+	pDC->SelectObject(pen);
+
+// 2) create a brush
+	CBrush brush(RGB(0,255,0));
+	pDC->SelectObject(brush);
+
+	pDC->SetBkMode(TRANSPARENT);
+
+// 3) draw a line from 5,5 to 25,25
+	pDC->MoveTo(5,5);
+	pDC->LineTo(25,25);
+
+// 4) draw a rectangle 5,55 to 50,85
+	pDC->Rectangle(CRect(5,55,50,85));
+
+// 5) draw an Arc within a rectangle from 5,115 to 50,115
+	pDC->Arc(CRect(5,115,50,145),CPoint(5,115),CPoint(50,115));
+
+// 6) draw a Rectangle with rounded corners 15 pixels from the corner
+	pDC->RoundRect(CRect(5,185,50,215),CPoint(15,15));
+
+// 7) draw Ellipes & circles within a rectangle
+	pDC->Ellipse(CRect(250,5,305,25));
+
+// 8) draw Pie charts within a rectange from 250,55 to 305,55
+	pDC->Pie(CRect(250,55,305,85),CPoint(250,55),CPoint(305,55));
+
+// 9) draw a frame
+ 	pDC->DrawEdge( CRect(250,115,305,145),
+			EDGE_BUMP, //EDGE_ETCHED,EDGE_RAISED,EDGE_SUNKEN
+			BF_RECT ); //BF_LEFT,BF_BOTTOM,BF_RIGHT,BF_TOP
+
+// 10) draw an edge
+ 	pDC->DrawEdge( CRect(250,185,305,215),
+			EDGE_SUNKEN, //EDGE_ETCHED,EDGE_RAISED,EDGE_BUMP
+			BF_RECT ); //BF_LEFT,BF_BOTTOM,BF_RIGHT,BF_TOP
+
+// 11) draw multiple lines in one operation
+	POINT pt[8];
+	pt[0].x=495;
+	pt[0].y=5;
+	pt[1].x=510;
+	pt[1].y=10;
+	pt[2].x=515;
+	pt[2].y=12;
+	pt[3].x=495;
+	pt[3].y=15;
+	pt[4].x=550;
+	pt[4].y=25;
+ 	pDC->Polyline( pt, 5);
+
+
+// 12) draw a polygon in one operation
+// (same as above, except a closed object is created)
+	pt[0].x=495;
+	pt[0].y=55;
+	pt[1].x=550;
+	pt[1].y=55;
+	pt[2].x=530;
+	pt[2].y=65;
+	pt[3].x=550;
+	pt[3].y=85;
+	pt[4].x=520;
+	pt[4].y=70;
+	pt[5].x=495;
+	pt[5].y=85;
+	pt[6].x=510;
+	pt[6].y=65;
+	pt[7].x=495;
+	pt[7].y=55;
+ 	pDC->Polygon( pt, 8);
+
+/////////////////////////////////////////////////////////////////////
+// From: Visual C++ MFC Programming by Example by John E. Swanke
+// Copyright (C) 1998 jeswanke. All rights reserved.
+/////////////////////////////////////////////////////////////////////
+

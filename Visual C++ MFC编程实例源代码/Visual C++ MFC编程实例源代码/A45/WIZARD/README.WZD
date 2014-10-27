@@ -1,0 +1,65 @@
+/////////////////////////////////////////////////////////////////////
+// Example files.
+/////////////////////////////////////////////////////////////////////
+
+WzdDlgBr.cpp -- a dialog bar class
+WzdDlgBr.h
+
+
+/////////////////////////////////////////////////////////////////////
+// Modify the Mainframe Class.
+/////////////////////////////////////////////////////////////////////
+
+// 1) embed the dialog bar class in MainFrm.h
+	CWzdDialogBar	m_WzdDialogBar;
+
+
+// 2) create dialog bar after creating toolbar in MainFrm.cpp
+	if (!m_WzdDialogBar.Create(this, IDD_WZD_DIALOG,
+		CBRS_TOP,	// control bar is initially at top of frame
+//		CBRS_BOTTOM,// control bar is initially at bottom of frame
+//		CBRS_LEFT,	// control bar is initially on left side of frame
+//		CBRS_RIGHT,	// control bar is initially on right side of frame
+		-1) ||
+		!m_WzdDialogBar.InitDialog())
+	{
+		TRACE0("Failed to create dialog bar\n");
+		return -1;      // fail to create
+	}
+		
+   	m_WzdDialogBar.EnableDocking(
+		CBRS_ORIENT_HORZ	// control bar will only dock to top or bottom of frame
+//		CBRS_ORIENT_VERT	// control bar will only dock to left or right side of frame
+//		CBRS_ORIENT_ANY		// control bar will dock to any side of frame
+		);
+	DockControlBar(&m_WzdDialogBar);
+
+
+
+// 3) use ClassWizard to add OnCmdMsg() to CMainFrm
+BOOL CMainFrame::OnCmdMsg(UINT nID, int nCode, void* pExtra, AFX_CMDHANDLERINFO* pHandlerInfo) 
+{
+// 4) pass command interface updates to controls in dialog bar
+	if (m_WzdDialogBar.OnCmdMsg(nID,nCode,pExtra,pHandlerInfo))
+		return TRUE;
+	
+	return CMDIFrameWnd::OnCmdMsg(nID, nCode, pExtra, pHandlerInfo);
+}
+
+// 5) add View commands to show/hide dialog bar
+void CMainFrame::OnViewDialogbar() 
+{
+	ShowControlBar(&m_WzdDialogBar, (m_WzdDialogBar.GetStyle() & WS_VISIBLE) == 0, FALSE);	
+}
+
+void CMainFrame::OnUpdateViewDialogbar(CCmdUI* pCmdUI) 
+{
+	pCmdUI->SetCheck((m_WzdDialogBar.GetStyle() & WS_VISIBLE) != 0);
+}
+
+
+/////////////////////////////////////////////////////////////////////
+// From: Visual C++ MFC Programming by Example by John E. Swanke
+// Copyright (C) 1998 jeswanke. All rights reserved.
+/////////////////////////////////////////////////////////////////////
+

@@ -1,0 +1,45 @@
+/////////////////////////////////////////////////////////////////////
+// Modify any class.
+/////////////////////////////////////////////////////////////////////
+
+// 1) to create a simple message
+	AfxMessageBox("Hello");
+
+// 2) to create a simple message using resource string
+	AfxMessageBox(IDS_HELLO);
+
+// 3) to stick text strings in a resource string to create a message
+	//  example: IDS_HELLO_1 is "Hello %1"
+	AfxFormatString1( msg, IDS_HELLO_1, "Goodbye");
+	AfxMessageBox(msg);
+
+// 4) same as above but two input strings are allowed
+	// example: IDS_HELLO_2 is "Hello %1 %2"
+	AfxFormatString2(msg, IDS_HELLO_2, "and", "Goodbye");
+	AfxMessageBox(msg);
+
+// 5) to create a simple prompt
+	msg.Format("Delete this file:\n%s?",sFilename);
+	if (AfxMessageBox(msg, MB_YESNO)==IDYES)
+	{
+	}
+	// also available: MB_ABORTRETRYIGNORE,MB_OKCANCEL,MB_RETRYCANCEL,MB_YESNO,MB_YESNOCANCEL
+	// for the test: IDNO, IDABORT, IDCANCEL, IDIGNORE, IDOK and IDRETRY
+
+// 6) to create a prompt with yes/no/cancel and no as the default button
+	if (AfxMessageBox(msg,MB_YESNO|MB_DEFBUTTON2)==IDYES)
+	{
+	}
+	// also available: MB_DEFBUTTON3
+
+
+// 7) to change exclamation point to an error sign
+	AfxMessageBox(msg,MB_ICONSTOP);
+	//also available MB_ICONINFORMATION and MB_ICONQUESTION
+
+
+/////////////////////////////////////////////////////////////////////
+// From: Visual C++ MFC Programming by Example by John E. Swanke
+// Copyright (C) 1998 jeswanke. All rights reserved.
+/////////////////////////////////////////////////////////////////////
+

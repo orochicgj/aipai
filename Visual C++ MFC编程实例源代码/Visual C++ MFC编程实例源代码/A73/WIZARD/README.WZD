@@ -1,0 +1,194 @@
+/////////////////////////////////////////////////////////////////////
+// Modify Stdafx.h
+/////////////////////////////////////////////////////////////////////
+
+// 1) ensure to include database includes in Stdafx.h
+
+#ifndef _AFX_NO_DB_SUPPORT
+#include <afxdb.h>			// MFC ODBC database classes
+#endif // _AFX_NO_DB_SUPPORT
+
+#ifndef _AFX_NO_DAO_SUPPORT
+#include <afxdao.h>			// MFC DAO database classes
+#endif // _AFX_NO_DAO_SUPPORT
+
+/////////////////////////////////////////////////////////////////////
+// Modify Document Class
+/////////////////////////////////////////////////////////////////////
+
+// 1) embed database class in document class (or other class)
+	CDocument m_WzdDocument;
+
+// 2) open database in CDocument's OnNewFile or OnOpenFile
+	if(!m_WzdDatabase.Open(
+			NULL,								// Data source name, NULL if defined in DSN= below
+			FALSE,								// exclusive access, NOT SUPPORTED, should always be false
+			FALSE,								// read only access
+			"ODBC;DSN=MS Access 97 Database")	// connect string DSN= is data source name,
+												// UID= is user id, PSW= is password
+			)
+	{
+		AfxMessageBox("Failed to open database.");
+	}
+	
+
+// 3) close database in CDocument's DeleteContents()
+	// close database
+	m_WzdDatabase.Close();
+
+/////////////////////////////////////////////////////////////////////
+// Modify View Class
+/////////////////////////////////////////////////////////////////////
+
+// 1) create record set object
+	CWzdRecordSet wzdSet(GetDocument()->GetDatabase());
+
+// 2) open all records in table
+	wzdSet.Open();
+
+// 3) scroll through records
+	while (! wzdSet.IsEOF())
+	{
+		// values can be accessed from record set member variables:
+		//		wzdSet.m_CustomerID  
+		//		wzdSet.m_CompanyName 
+		//		wzdSet.m_ContactName 
+		//			etc.
+
+		wzdSet.MoveNext();
+	}
+
+// 4) if we can't update or append records, leave now
+	if (!wzdSet.CanUpdate() || !wzdSet.CanAppend())
+		return;
+
+// 5) add a record
+	try
+	{
+		// add new record
+		wzdSet.AddNew();
+
+		// initialize each field
+		wzdSet.m_CustomerID="ABCDE";
+		wzdSet.m_CompanyName="ABC Inc.";
+		//etc.
+
+		// update database
+		wzdSet.Update();
+	}
+	catch (CDBException *e)
+	{
+		// AddNew failed
+ 		AfxMessageBox(e->m_strError);
+		e->Delete();
+	}
+
+// 6) edit a record
+	wzdSet.MoveFirst();
+	try
+	{
+		wzdSet.Edit();
+
+		// update affected fields
+		wzdSet.m_CompanyName="ABCEF Inc.";
+		wzdSet.m_ContactName="Frank";
+		//etc.
+
+		// update database
+		wzdSet.Update();
+	}
+	catch (CDBException *e)
+	{
+		// Edit failed
+ 		AfxMessageBox(e->m_strError);
+		e->Delete();
+	}
+
+
+// 7) delete a record
+	try
+	{
+		// delete record to which we're currently opened
+		wzdSet.Delete();
+	}
+	catch (CDBException *e)
+	{
+		// Delete failed
+ 		AfxMessageBox(e->m_strError);
+		e->Delete();
+	}
+
+// 8) close record set
+	wzdSet.Close();
+
+///////////////////////////////////
+// RECORD FILTERING   
+///////////////////////////////////
+// 9) open record set with a simple "WHERE" SQL filter
+	wzdSet.m_strFilter = "[Country]='UK'";
+	if(!wzdSet.Open() || wzdSet.IsEOF())
+	{
+		AfxMessageBox("Cannot find records.");
+	}
+
+	// scroll through records as above...
+	while (! wzdSet.IsEOF())
+	{
+		wzdSet.MoveNext();
+	}
+	wzdSet.Close();
+
+
+// 10) open a record set with a complete SQL SELECT statement
+	wzdSet.m_strFilter = ""; // appended to the following!
+	if (!wzdSet.Open(AFX_DB_USE_DEFAULT_TYPE,
+	 	"SELECT [CustomerID], [CompanyName], [ContactName], \
+[ContactTitle], [Address], [City], [Region], [PostalCode], [Country], [Phone], [Fax] \
+FROM [Customers] WHERE [Country] = 'Mexico'") ||
+			wzdSet.IsEOF())
+	{
+		AfxMessageBox("Cannot find records.");
+	}
+
+	// scroll through records as above...
+	while (! wzdSet.IsEOF())
+	{
+		wzdSet.MoveNext();
+	}
+	wzdSet.Close();
+
+////////////////////////////////////
+// MULTIPLE TABLE TRANSACTIONS
+////////////////////////////////////
+
+// NOTE: when performing related operations on more then one database
+// table at a time, an error in any one of these transactions should undo
+// or "rollback" all of the changes made
+
+// 11) Create a transaction we can rollback
+	GetDocument()->GetDatabase()->BeginTrans();
+	try
+	{
+		// perform transactions on several database tables/records
+		wzdSet.Open();
+		wzdSet.Update();
+		// Success
+		GetDocument()->GetDatabase()->CommitTrans();
+	}
+	catch (CDBException *e)
+	{
+		// An exception occurred, rollback the transaction
+		GetDocument()->GetDatabase()->Rollback();
+ 		AfxMessageBox(e->m_strError);
+		e->Delete();
+	}
+	// since this was allocated on stack, returning will also close record set
+	wzdSet.Close(); 
+
+
+
+/////////////////////////////////////////////////////////////////////
+// From: Visual C++ MFC Programming by Example by John E. Swanke
+// Copyright (C) 1998 jeswanke. All rights reserved.
+/////////////////////////////////////////////////////////////////////
+

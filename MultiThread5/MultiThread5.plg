@@ -1,0 +1,21 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: MultiThread5 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/MultiThread5.res" /d "_DEBUG" /d "_AFXDLL" "F:\workspace\MultiThread5\MultiThread5.rc"" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:yes /pdb:"Debug/MultiThread5.pdb" /debug /machine:I386 /out:"Debug/MultiThread5.exe" /pdbtype:sept  .\Debug\MultiThread5.obj .\Debug\MultiThread5Dlg.obj .\Debug\StdAfx.obj .\Debug\MultiThread5.res "
+<h3>Output Window</h3>
+Compiling resources...
+Linking...
+
+
+
+<h3>Results</h3>
+MultiThread5.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

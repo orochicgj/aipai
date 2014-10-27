@@ -1,0 +1,1 @@
+add new view class to document template

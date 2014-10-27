@@ -1,0 +1,56 @@
+/////////////////////////////////////////////////////////////////////
+// Modify the Mainframe Class.
+/////////////////////////////////////////////////////////////////////
+
+// 1) use String Table Editor to add a new string, one per pane
+
+// 2) add the id's of these new string(s) to MainFrm.cpp's indicators array
+static UINT indicators[] =
+{
+	ID_SEPARATOR,           // status line indicator
+	ID_INDICATOR_WZD1, <<<
+	ID_INDICATOR_WZD2, <<<
+	ID_INDICATOR_CAPS,
+	ID_INDICATOR_NUM,
+	ID_INDICATOR_SCRL,
+};
+
+/////////////////////////////////////////////////////////////////////
+// Modify the View Class.
+/////////////////////////////////////////////////////////////////////
+
+// 1) declare UI handler(s) for each pane
+protected:
+	//{{AFX_MSG(CWzdView)
+	//}}AFX_MSG
+	afx_msg void OnUpdateIndicatorWzd1(CCmdUI *pCCmdUI);
+	afx_msg void OnUpdateIndicatorWzd2(CCmdUI *pCCmdUI);
+	DECLARE_MESSAGE_MAP()
+
+// 2) add handlers to class's message map
+BEGIN_MESSAGE_MAP(CWzdView, CView)
+	//{{AFX_MSG_MAP(CWzdView)
+	//}}AFX_MSG_MAP
+	ON_UPDATE_COMMAND_UI(ID_INDICATOR_WZD1, OnUpdateIndicatorWzd1)
+	ON_UPDATE_COMMAND_UI(ID_INDICATOR_WZD2, OnUpdateIndicatorWzd2)
+END_MESSAGE_MAP()
+
+// implement the handlers
+void CWzdView::OnUpdateIndicatorWzd1(CCmdUI *pCCmdUI)
+{
+	pCCmdUI->Enable(TRUE); // causes the text defined with String Editor to appear
+	pCCmdUI->SetText("NEW"); // causes "NEW" to appear in pane
+}
+
+void CWzdView::OnUpdateIndicatorWzd2(CCmdUI *pCCmdUI)
+{
+	pCCmdUI->Enable(TRUE); // causes the text defined with String Editor to appear
+	pCCmdUI->SetCheck(); // causes pane to pop out
+}
+
+
+/////////////////////////////////////////////////////////////////////
+// From: Visual C++ MFC Programming by Example by John E. Swanke
+// Copyright (C) 1998 jeswanke. All rights reserved.
+/////////////////////////////////////////////////////////////////////
+

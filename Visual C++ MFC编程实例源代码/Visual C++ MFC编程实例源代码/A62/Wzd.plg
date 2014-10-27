@@ -1,0 +1,57 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Wzd - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Debug/Wzd.res" /d "_DEBUG" /d "_AFXDLL" "D:\VC\Visual C++MFC编程实例\VCMFCBCSL\A62\Wzd.rc"" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP17F.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /Fp"Debug/Wzd.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /c 
+"D:\VC\Visual C++MFC编程实例\VCMFCBCSL\A62\ChildFrm.cpp"
+"D:\VC\Visual C++MFC编程实例\VCMFCBCSL\A62\MainFrm.cpp"
+"D:\VC\Visual C++MFC编程实例\VCMFCBCSL\A62\Wzd.cpp"
+"D:\VC\Visual C++MFC编程实例\VCMFCBCSL\A62\WzdDoc.cpp"
+"D:\VC\Visual C++MFC编程实例\VCMFCBCSL\A62\WzdView.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP17F.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP180.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /Fp"Debug/Wzd.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /c 
+"D:\VC\Visual C++MFC编程实例\VCMFCBCSL\A62\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP180.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP181.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/Wzd.pdb" /debug /machine:I386 /out:"Debug/Wzd.exe" /pdbtype:sept 
+".\Debug\ChildFrm.obj"
+".\Debug\MainFrm.obj"
+".\Debug\StdAfx.obj"
+".\Debug\Wzd.obj"
+".\Debug\WzdDoc.obj"
+".\Debug\WzdView.obj"
+".\Debug\Wzd.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP181.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+ChildFrm.cpp
+MainFrm.cpp
+Wzd.cpp
+WzdDoc.cpp
+WzdView.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+Wzd.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

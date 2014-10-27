@@ -1,0 +1,43 @@
+/////////////////////////////////////////////////////////////////////
+// Modify View Class.
+/////////////////////////////////////////////////////////////////////
+
+
+// 1) set mode when button is pressed
+void CWzdView::OnWzd1Button() 
+{
+	m_nWzdMode=CWzdView::mode1;
+}
+
+void CWzdView::OnWzd2Button() 
+{
+	m_nWzdMode=CWzdView::mode2;
+}
+
+void CWzdView::OnWzd3Button() 
+{
+	m_nWzdMode=CWzdView::mode3;
+}
+
+// 2) depress button based on which button mode you're in
+void CWzdView::OnUpdateWzd1Button(CCmdUI* pCmdUI) 
+{
+	pCmdUI->SetRadio(m_nWzdMode==CWzdView::mode1);
+}
+
+void CWzdView::OnUpdateWzd2Button(CCmdUI* pCmdUI) 
+{
+	pCmdUI->SetRadio(m_nWzdMode==CWzdView::mode2);
+}
+
+void CWzdView::OnUpdateWzd3Button(CCmdUI* pCmdUI) 
+{
+	pCmdUI->SetRadio(m_nWzdMode==CWzdView::mode3);
+}
+
+
+/////////////////////////////////////////////////////////////////////
+// From: Visual C++ MFC Programming by Example by John E. Swanke
+// Copyright (C) 1998 jeswanke. All rights reserved.
+/////////////////////////////////////////////////////////////////////
+

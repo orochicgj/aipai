@@ -1,0 +1,33 @@
+/////////////////////////////////////////////////////////////////////
+// Modify a Frame window (Mainframe or Childframe)
+/////////////////////////////////////////////////////////////////////
+
+// 1) get a pointer to the system menu	
+	CMenu* pSysMenu = GetSystemMenu(FALSE);
+
+// 2) to add a command to the menu
+	pSysMenu->AppendMenu(0,IDC_WZD_TYPE,"&Wzd");
+
+// 3) to remove a command from the menu
+	pSysMenu->RemoveMenu(SC_CLOSE, MF_BYCOMMAND);
+
+
+// 4) use the ClassWizard to add a WM_SYSCOMMAND handler to handle the new
+// system menu command
+void CChildFrame::OnSysCommand(UINT nID, LPARAM lParam) 
+{
+	if (nID==IDC_WZD_TYPE)
+	{
+		AfxMessageBox("Hello.");
+	}
+	
+	CMDIChildWnd::OnSysCommand(nID, lParam);
+}
+
+
+
+/////////////////////////////////////////////////////////////////////
+// From: Visual C++ MFC Programming by Example by John E. Swanke
+// Copyright (C) 1998 jeswanke. All rights reserved.
+/////////////////////////////////////////////////////////////////////
+

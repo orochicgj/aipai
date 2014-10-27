@@ -1,0 +1,61 @@
+/////////////////////////////////////////////////////////////////////
+// Modify any class...
+/////////////////////////////////////////////////////////////////////
+
+	CStdioFile file;
+	CFileStatus status;
+	CString msg;
+
+	CString sFile("Wzd.txt");
+	CString sRecord("This is my text data.");
+
+// 1) see if file exists
+	if (!CFile::GetStatus(sFile,status))
+	{
+		msg.Format("%s does not exist",sFile);
+		AfxMessageBox(msg);
+	}
+
+// 2) create and open file for write
+	if( !file.Open( sFile, CFile::modeWrite | CFile::typeText ))
+	{
+		if( !file.Open( sFile, CFile::modeCreate | CFile::modeWrite | CFile::typeText ))
+		{
+			msg.Format("Failed to create %s.",sFile);
+		}
+	}
+
+// 3) write string to file
+	file.WriteString(sRecord);
+
+// 4) close file
+	file.Close();
+
+// 5) open file for read
+	if (!file.Open( sFile, CFile::modeRead | CFile::typeText ))
+	{
+		msg.Format("Failed to open %s.",sFile);
+		AfxMessageBox(msg);
+	}
+
+// 6) seek to beginning and end
+	file.SeekToEnd();
+	file.SeekToBegin();
+
+// 7) read file
+	while (file.ReadString(sRecord))
+	{
+	}
+
+// 8) close file
+	file.Close();
+
+// 9) delete file
+	CFile::Remove(sFile);
+
+
+/////////////////////////////////////////////////////////////////////
+// From: Visual C++ MFC Programming by Example by John E. Swanke
+// Copyright (C) 1998 jeswanke. All rights reserved.
+/////////////////////////////////////////////////////////////////////
+

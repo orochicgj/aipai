@@ -1,0 +1,1 @@
+a sample data class to store in a list

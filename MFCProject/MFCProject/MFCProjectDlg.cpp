@@ -208,6 +208,8 @@ void CMFCProjectDlg::OnBnClickedButton1()
 	int index = cbb_id.GetCurSel();
 	cbb_id.GetLBText(index,string_id);
 
+	AfxBeginThread(myThread, &info);
+
 	fun_main();
 	
 }
@@ -341,4 +343,8 @@ int CMFCProjectDlg::searchLocation(CString &filePath, CString &ID){
 	delete [] buffer;
 	flag = NULL;
 	return 0;
+}
+
+UINT myThread(){
+
 }

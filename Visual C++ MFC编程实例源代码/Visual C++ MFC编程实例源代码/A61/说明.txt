@@ -1,0 +1,1 @@
+关于CMainFrame::OnCmdMsg函数的例子

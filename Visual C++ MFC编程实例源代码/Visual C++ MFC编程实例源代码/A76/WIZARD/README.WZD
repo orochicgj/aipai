@@ -1,0 +1,16 @@
+/////////////////////////////////////////////////////////////////////
+// Example files.
+/////////////////////////////////////////////////////////////////////
+
+WzdEdit.cpp -- a CEdit class that supports it own cut, copy, and paste
+WzdEdit.h			popup menu.
+
+(Yes, I know a CEdit control already supports this menu, however the logic
+for this menu is exposed in this class derivation so that additional
+menu commands can be added.)
+
+/////////////////////////////////////////////////////////////////////
+// From: Visual C++ MFC Programming by Example by John E. Swanke
+// Copyright (C) 1998 jeswanke. All rights reserved.
+/////////////////////////////////////////////////////////////////////
+

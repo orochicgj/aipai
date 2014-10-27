@@ -1,0 +1,35 @@
+/////////////////////////////////////////////////////////////////////
+// Modify any class...
+/////////////////////////////////////////////////////////////////////
+
+// 1) this creates a CMemFile class object and opens the file too
+	CMemFile file;
+
+	char buffer[]={"This is my disk data."};
+
+// 2) write to file
+	file.Write(buffer,sizeof(buffer));
+
+// 3) get file length
+	UINT nBytes = file.GetLength();
+
+// 4) seek to beginning, end and in the middle
+	file.SeekToEnd();
+	file.Seek(20,CFile::begin); //also CFile::end and CFile::current
+	file.SeekToBegin();
+
+// 5) read file
+	while (nBytes=file.Read(buffer,sizeof(buffer)))
+	{
+	}
+
+// 6) delete file (sets to zero length)
+//    (file is actually closed when class object is destroyed)
+	file.SetLength(0);
+
+
+/////////////////////////////////////////////////////////////////////
+// From: Visual C++ MFC Programming by Example by John E. Swanke
+// Copyright (C) 1998 jeswanke. All rights reserved.
+/////////////////////////////////////////////////////////////////////
+

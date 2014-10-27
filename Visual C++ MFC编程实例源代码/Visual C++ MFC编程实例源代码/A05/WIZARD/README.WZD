@@ -1,0 +1,80 @@
+/////////////////////////////////////////////////////////////////////
+// Example file.
+/////////////////////////////////////////////////////////////////////
+
+WzdPrjct.h -- an include file that defines a project's registry keys
+
+/////////////////////////////////////////////////////////////////////
+// Modify the Application Class.
+/////////////////////////////////////////////////////////////////////
+
+// 1) locate the SetRegistryKey() function and change argument to company key
+// (failure to do this will cause your application's options to be saved to
+// a .ini file in your system's os directory)
+	SetRegistryKey(COMPANY_KEY);
+
+// 2) replace the "pMainFrame->ShowWindow(m_nCmdShow);" line in the InitInstance()
+// function with the following:
+	UINT err;
+	HKEY key;
+	DWORD size, type;
+	WINDOWPLACEMENT wp;
+	if((err=RegOpenKeyEx( HKEY_CURRENT_USER,APPLICATION_KEY,0,KEY_READ,&key)) == ERROR_SUCCESS )
+	{
+		type = REG_BINARY;
+		size = sizeof(WINDOWPLACEMENT);
+		err=RegQueryValueEx( key,WINDOWPLACEMENT_KEY,0,&type,(LPBYTE)&wp,&size );
+		RegCloseKey( key );
+	}
+	if (err==ERROR_SUCCESS)
+	{
+		pMainFrame->SetWindowPlacement(&wp);
+	}
+	else
+	{
+		pMainFrame->ShowWindow(m_nCmdShow);
+	}
+	pMainFrame->UpdateWindow();
+
+
+/////////////////////////////////////////////////////////////////////
+// Modify the Mainframe Class.
+/////////////////////////////////////////////////////////////////////
+
+
+// 1) load previous bar states at end of OnCreate()
+	LoadBarState("Control Bar States");
+
+
+// 2) save toolbar state and screen size and position in OnClose()
+void CMainFrame::OnClose() 
+{
+	// save state of control bars
+	SaveBarState("Control Bar States");
+
+	// save size of screen
+	HKEY key;
+	DWORD size, type, disposition;
+	WINDOWPLACEMENT wp;
+	if (RegOpenKeyEx( HKEY_CURRENT_USER,APPLICATION_KEY,0,
+           KEY_WRITE,&key)!=ERROR_SUCCESS)
+	{
+		RegCreateKeyEx( HKEY_CURRENT_USER,APPLICATION_KEY,0,"",
+        		REG_OPTION_NON_VOLATILE,KEY_ALL_ACCESS,NULL,
+					&key,&disposition);
+	}
+	type = REG_BINARY;
+	size=sizeof(WINDOWPLACEMENT);
+	GetWindowPlacement(&wp);
+	RegSetValueEx( key,WINDOWPLACEMENT_KEY,0,type,(LPBYTE)&wp,size );
+	RegCloseKey( key );
+	
+	CMDIFrameWnd::OnClose();
+}
+
+
+/////////////////////////////////////////////////////////////////////
+// From: Visual C++ MFC Programming by Example by John E. Swanke
+// Copyright (C) 1998 jeswanke. All rights reserved.
+/////////////////////////////////////////////////////////////////////
+

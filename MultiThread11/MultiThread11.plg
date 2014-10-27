@@ -1,0 +1,31 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: MultiThread11 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP13E7.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/MultiThread11.pdb" /debug /machine:I386 /out:"Debug/MultiThread11.exe" /pdbtype:sept 
+".\Debug\MultiThread11.obj"
+".\Debug\MultiThread11Dlg.obj"
+".\Debug\StdAfx.obj"
+".\Debug\MultiThread11.res"
+".\Debug\Dialog1.obj"
+".\Debug\Dialog2.obj"
+".\Debug\APPMODUL.OBJ"
+".\Debug\Dialog3.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP13E7.tmp"
+<h3>Output Window</h3>
+Linking...
+
+
+
+<h3>Results</h3>
+MultiThread11.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
