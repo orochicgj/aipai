@@ -1,4 +1,3 @@
-
 // MFCProjectDlg.cpp : 实现文件
 //
 
@@ -30,13 +29,13 @@ class CAboutDlg : public CDialogEx
 public:
 	CAboutDlg();
 
-// 对话框数据
+	// 对话框数据
 	enum { IDD = IDD_ABOUTBOX };
 
-	protected:
+protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 支持
 
-// 实现
+	// 实现
 protected:
 	DECLARE_MESSAGE_MAP()
 };
@@ -129,7 +128,7 @@ BOOL CMFCProjectDlg::OnInitDialog()
 	cbb_id.AddString(_T("457800643xc"));
 	cbb_id.AddString(_T("lingzhiji服饰旗舰店"));
 	cbb_id.AddString(_T("呢好美"));
-	
+
 	/*初始化进度条*/
 	progress_search.SetRange(0,100);
 	progress_search.SetStep(10);
@@ -193,30 +192,9 @@ void CMFCProjectDlg::OnCbnSelchangeCombo1()
 	// TODO: 在此添加控件通知处理程序代码
 }
 
-
-void CMFCProjectDlg::OnBnClickedButton1()
-{
-	// TODO: 在此添加控件通知处理程序代码
-	//progress_search.StepIt();
-	SetDlgItemText(IDC_EDIT2,_T(" "));
-	progress_search.SetPos(0);
-
-	/*获取窗口数据*/
-	GetDlgItemText(IDC_EDIT1,string_keyWord);
-
-	//GetDlgItemText(IDC_COMBO1,string_id);
-	int index = cbb_id.GetCurSel();
-	cbb_id.GetLBText(index,string_id);
-
-	AfxBeginThread(myThread, &info);
-
-	fun_main();
-	
-}
-
 int CMFCProjectDlg::fun_main(){
 	url_date = _T("initiative_id=tbindexz_") + generateUrlDate();
-	url_keyWord = _T("q=") + generateUrlKeyWord(); 
+	url_keyWord = _T("q=") + generateUrlKeyWord();
 	for(int i = 1; i <= 100; i++){
 		url_page = generateUrlPage(i);
 		if((i - 1)%10 == 0){
@@ -242,8 +220,8 @@ int CMFCProjectDlg::fun_main(){
 			}else{
 				if(i == 100)
 					std::cout << std::endl << std::endl << "*************  sorry,we don't have found it  *************" << std::endl << std::endl << std::endl ;
-					showPage = _T("没有找到！");
-					SetDlgItemText(IDC_EDIT2,showPage);
+				showPage = _T("没有找到！");
+				SetDlgItemText(IDC_EDIT2,showPage);
 			}
 		}else{
 			std::cout << "URLDownloadToFile failed\n";
@@ -261,6 +239,25 @@ int CMFCProjectDlg::fun_main(){
 	//getchar();
 	return 0;
 }
+
+
+
+void CMFCProjectDlg::OnBnClickedButton1()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	//progress_search.StepIt();
+	SetDlgItemText(IDC_EDIT2,_T(" "));
+	progress_search.SetPos(0);
+
+	/*获取窗口数据*/
+	GetDlgItemText(IDC_EDIT1,string_keyWord);
+
+	//GetDlgItemText(IDC_COMBO1,string_id);
+	int index = cbb_id.GetCurSel();
+	cbb_id.GetLBText(index,string_id);
+
+}
+
 
 CString CMFCProjectDlg::generateUrlDate(){
 	CTime currentTime = CTime::GetCurrentTime();
@@ -343,8 +340,4 @@ int CMFCProjectDlg::searchLocation(CString &filePath, CString &ID){
 	delete [] buffer;
 	flag = NULL;
 	return 0;
-}
-
-UINT myThread(){
-
 }
