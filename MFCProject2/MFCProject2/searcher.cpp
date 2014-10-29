@@ -32,17 +32,21 @@ int searcher::fun_main(int page){
 	if(result == S_OK){
 		if(!searchLocation(filePath,string_id)){
 			HWND handle = AfxGetMainWnd() -> m_hWnd;
-			PostMessage(handle,MESSAGE_UPDATE_EDIT, 0, 0);
+			PostMessage(handle,MESSAGE_UPDATE_EDIT, page, 1);
 			std::cout << "find it!";
-			std::ofstream ffout("current.html");
-			ffout << filePath;
+			std::ofstream ffout("currentURL.txt");
+			ffout << URL;
 			ffout.flush();
 			ffout.close();
 		}else{
 			//HWND handle = AfxGetMainWnd() -> m_hWnd;
 			//PostMessage(handle,MESSAGE_UPDATE_EDIT, 0, 0);
 			if(page == 100){
+				HWND handle = AfxGetMainWnd() -> m_hWnd;
+				PostMessage(handle,MESSAGE_UPDATE_EDIT, page, 0);
 				std::cout << "not find!";
+				return 1;
+			}else{
 				return 1;
 			}
 		}

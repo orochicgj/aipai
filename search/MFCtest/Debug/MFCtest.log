@@ -1,0 +1,40 @@
+﻿生成启动时间为 2014/10/27 0:28:20。
+     1>项目“E:\github\search\MFCtest\MFCtest.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Debug\MFCtest.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         正在删除文件“Debug\MFCtest.pch”。
+         E:\developTool\vs2010\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Debug\MFCtest.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         E:\developTool\vs2010\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\MFCtest.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt MFCtest.cpp MFCtestDlg.cpp
+         MFCtestDlg.cpp
+         MFCtest.cpp
+         正在生成代码...
+       ResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D _DEBUG /D _AFXDLL /l"0x0804" /IDebug\ /nologo /fo"Debug\MFCtest.res" MFCtest.rc 
+       ManifestResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\MFCtest.exe.embed.manifest.res" Debug\MFCtest_manifest.rc 
+       Link:
+         E:\developTool\vs2010\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\github\search\MFCtest\Debug\MFCtest.exe" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:"Debug\MFCtest.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\github\search\MFCtest\Debug\MFCtest.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\github\search\MFCtest\Debug\MFCtest.lib" /MACHINE:X86 Debug\MFCtest.res
+         Debug\MFCtest.exe.embed.manifest.res
+         Debug\MFCtest.obj
+         Debug\MFCtestDlg.obj
+         Debug\stdafx.obj
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\MFCtest.exe.embed.manifest" /manifest Debug\MFCtest.exe.intermediate.manifest E:\developTool\vs2010\VC\Include\Manifest\dpiaware.manifest
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\MFCtest.exe.embed.manifest.res" Debug\MFCtest_manifest.rc 
+       LinkEmbedManifest:
+         E:\developTool\vs2010\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\github\search\MFCtest\Debug\MFCtest.exe" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:"Debug\MFCtest.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\github\search\MFCtest\Debug\MFCtest.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\github\search\MFCtest\Debug\MFCtest.lib" /MACHINE:X86 Debug\MFCtest.res
+         Debug\MFCtest.exe.embed.manifest.res
+         Debug\MFCtest.obj
+         Debug\MFCtestDlg.obj
+         Debug\stdafx.obj
+         MFCtest.vcxproj -> E:\github\search\MFCtest\Debug\MFCtest.exe
+       FinalizeBuildStatus:
+         正在删除文件“Debug\MFCtest.unsuccessfulbuild”。
+         正在对“Debug\MFCtest.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\github\search\MFCtest\MFCtest.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:03.16

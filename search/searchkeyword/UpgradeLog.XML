@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="searchkeyword">
+</Property><Property Name="解决方案文件" Value="E:\github\search\searchkeyword\searchkeyword.sln">
+</Property><Property Name="用户选项文件" Value="E:\github\search\searchkeyword\searchkeyword.suo">
+</Property><Property Name="Date" Value="2014年10月21日">
+</Property><Property Name="Time" Value="22:47">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="searchkeyword.sln" Description="文件已成功备份为 E:\github\search\searchkeyword\searchkeyword.sln.old">
+</Event><Event ErrorLevel="0" Project="" Source="searchkeyword.suo" Description="文件已成功备份为 E:\github\search\searchkeyword\searchkeyword.suo.old">
+</Event><Event ErrorLevel="0" Project="searchkeyword" Source="searchkeyword.vcproj" Description="Converting project file 'E:\github\search\searchkeyword\searchkeyword.vcproj'.">
+</Event><Event ErrorLevel="1" Project="searchkeyword" Source="searchkeyword.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="searchkeyword" Source="searchkeyword.vcproj" Description="Done converting to new project file 'E:\github\search\searchkeyword\searchkeyword.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="searchkeyword" Source="searchkeyword.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="searchkeyword.sln" Description="成功转换解决方案">
+</Event><Event ErrorLevel="3" Project="" Source="searchkeyword.sln" Description="Converted">
+</Event></UpgradeLog>

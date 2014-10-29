@@ -1,7 +1,7 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "searchkeyword", "searchkeyword.vcproj", "{5DBF27AD-E1CA-40A3-BD1C-3C61BCBA9855}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "searchkeyword", "searchkeyword.vcxproj", "{5DBF27AD-E1CA-40A3-BD1C-3C61BCBA9855}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

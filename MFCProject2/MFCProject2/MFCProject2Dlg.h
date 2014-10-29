@@ -9,7 +9,7 @@
 struct Info{
 	CString keyWord;
 	CString ID;
-	DWORD thread_status;
+	bool thread_flag;
 };
 
 // CMFCProject2Dlg 对话框
@@ -32,7 +32,6 @@ protected:
 	CString string_keyWord;
 	CString string_id;
 	Info info;
-	BOOL thread_flag;
 
 	// 生成的消息映射函数
 	virtual BOOL OnInitDialog();

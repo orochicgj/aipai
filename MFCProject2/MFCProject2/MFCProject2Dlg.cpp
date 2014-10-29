@@ -186,13 +186,18 @@ UINT ThreadBody(LPVOID lpParam)
 	Info * info = (Info *)lpParam;
 	searcher * obj = new searcher(info->keyWord,info->ID);
 	for(int page = 1; page <= 100; page++){
-		if(flag == false){
-			info->thread_status = 0;
-			flag = ture;
-			 ExitThread(0);
+		if( (page - 1)%10 == 0){
+			HWND handle = AfxGetMainWnd() -> m_hWnd;
+			PostMessage(handle,MESSAGE_UPDATE_EDIT, page, 100);
 		}
-		obj->fun_main(page);
+		int value = obj->fun_main(page);
+		if(value == 0){
+			break;
+		}else{
+			continue;
+		}
 	}
+	delete obj;
 	return 0;
 }
 
@@ -210,13 +215,21 @@ void CMFCProject2Dlg::OnBnClickedButton1()
 	cbb_id.GetLBText(index,string_id);
 	info.keyWord = string_keyWord;
 	info.ID = string_id;
-	thread_flag
-
 	AfxBeginThread(ThreadBody, &info);
 }
 
  LRESULT CMFCProject2Dlg::OnUserThreadend(WPARAM wParam, LPARAM lParam){
-	 SetDlgItemText(IDC_EDIT2,_T("222222"));
+	 if(lParam == 1){
+		 CString showPage;
+		 showPage.Format("%d",wParam);
+		 SetDlgItemText(IDC_EDIT2,showPage);
+	 }else if(lParam == 100){
+		 progress_search.StepIt();
+	 }
+	 else{
+		 SetDlgItemText(IDC_EDIT2,_T("ц╩спур╣╫"));
+	 }
+	 
 	 return 0;
  }
 
