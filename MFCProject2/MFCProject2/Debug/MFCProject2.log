@@ -1,0 +1,40 @@
+﻿生成启动时间为 2014/10/29 0:00:10。
+     1>项目“E:\workspace\vs2010\MFCProject2\MFCProject2\MFCProject2.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在对“Debug\MFCProject2.unsuccessfulbuild”执行 Touch 任务。
+       ClCompile:
+         所有输出均为最新。
+         所有输出均为最新。
+         E:\developTool\vs2010\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt searcher.cpp
+         searcher.cpp
+     1>e:\workspace\vs2010\mfcproject2\mfcproject2\searcher.cpp(97): warning C4244: “初始化”: 从“std::streamoff”转换到“unsigned int”，可能丢失数据
+       ResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D _DEBUG /D _AFXDLL /l"0x0804" /IDebug\ /nologo /fo"Debug\MFCProject2.res" MFCProject2.rc 
+       ManifestResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\MFCProject2.exe.embed.manifest.res" Debug\MFCProject2_manifest.rc 
+       Link:
+         E:\developTool\vs2010\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\workspace\vs2010\MFCProject2\Debug\MFCProject2.exe" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:"Debug\MFCProject2.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\workspace\vs2010\MFCProject2\Debug\MFCProject2.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\workspace\vs2010\MFCProject2\Debug\MFCProject2.lib" /MACHINE:X86 Debug\MFCProject2.res
+         Debug\MFCProject2.exe.embed.manifest.res
+         Debug\MFCProject2.obj
+         Debug\MFCProject2Dlg.obj
+         Debug\searcher.obj
+         Debug\stdafx.obj
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\MFCProject2.exe.embed.manifest" /manifest Debug\MFCProject2.exe.intermediate.manifest E:\developTool\vs2010\VC\Include\Manifest\dpiaware.manifest
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\MFCProject2.exe.embed.manifest.res" Debug\MFCProject2_manifest.rc 
+       LinkEmbedManifest:
+         E:\developTool\vs2010\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\workspace\vs2010\MFCProject2\Debug\MFCProject2.exe" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:"Debug\MFCProject2.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\workspace\vs2010\MFCProject2\Debug\MFCProject2.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\workspace\vs2010\MFCProject2\Debug\MFCProject2.lib" /MACHINE:X86 Debug\MFCProject2.res
+         Debug\MFCProject2.exe.embed.manifest.res
+         Debug\MFCProject2.obj
+         Debug\MFCProject2Dlg.obj
+         Debug\searcher.obj
+         Debug\stdafx.obj
+         MFCProject2.vcxproj -> E:\workspace\vs2010\MFCProject2\Debug\MFCProject2.exe
+       FinalizeBuildStatus:
+         正在删除文件“Debug\MFCProject2.unsuccessfulbuild”。
+         正在对“Debug\MFCProject2.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\workspace\vs2010\MFCProject2\MFCProject2\MFCProject2.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:03.00
