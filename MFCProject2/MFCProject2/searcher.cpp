@@ -20,7 +20,7 @@ searcher::searcher(CString &edit1, CString &cbb){
 	string_id = cbb;
 }
 
-int searcher::fun_main(int page){
+int searcher::fun_main(int page){	
 	url_date = _T("initiative_id=tbindexz_") + generateUrlDate();
 	url_keyWord = _T("q=") + generateUrlKeyWord(); 
 	if(page != 1){
@@ -30,10 +30,25 @@ int searcher::fun_main(int page){
 	}
 	HRESULT result =  URLDownloadToFile(0, URL, filePath, 0, NULL);
 	if(result == S_OK){
-
+		if(!searchLocation(filePath,string_id)){
+			HWND handle = AfxGetMainWnd() -> m_hWnd;
+			PostMessage(handle,MESSAGE_UPDATE_EDIT, 0, 0);
+			std::cout << "find it!";
+			std::ofstream ffout("current.html");
+			ffout << filePath;
+			ffout.flush();
+			ffout.close();
+		}else{
+			//HWND handle = AfxGetMainWnd() -> m_hWnd;
+			//PostMessage(handle,MESSAGE_UPDATE_EDIT, 0, 0);
+			if(page == 100){
+				std::cout << "not find!";
+				return 1;
+			}
+		}
 	}else{
-
-	}
+		return 1;
+	}//*/
 	return 0;
 }
 

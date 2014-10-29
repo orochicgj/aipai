@@ -6,6 +6,9 @@
 #include "MFCProject2.h"
 #include "MFCProject2Dlg.h"
 #include "afxdialogex.h"
+#include "searcher.h"
+#include <iostream>
+#include <fstream>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -70,6 +73,8 @@ BEGIN_MESSAGE_MAP(CMFCProject2Dlg, CDialogEx)
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BUTTON1, &CMFCProject2Dlg::OnBnClickedButton1)
 	ON_NOTIFY(NM_CUSTOMDRAW, IDC_PROGRESS1, &CMFCProject2Dlg::OnNMCustomdrawProgress1)
+
+	ON_MESSAGE(MESSAGE_UPDATE_EDIT, OnUserThreadend)
 END_MESSAGE_MAP()
 
 
@@ -106,7 +111,7 @@ BOOL CMFCProject2Dlg::OnInitDialog()
 
 	// TODO: 在此添加额外的初始化代码
 	/*初始化下拉列表*/
-	//cbb_id.AddString(_T("mr_timon"));
+	cbb_id.AddString(_T("mr_timon"));
 	cbb_id.AddString(_T("mr_pumbaa"));
 	cbb_id.AddString(_T("star_patrick"));
 	cbb_id.AddString(_T("乐乐是我的哦"));
@@ -170,12 +175,50 @@ HCURSOR CMFCProject2Dlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+UINT ThreadBody(LPVOID lpParam)
+{
+	/*
+	std::ofstream ffout("test");
+	ffout << "test multithread";
+	ffout.flush();
+	ffout.close();
+	return 0;//*/
+	Info * info = (Info *)lpParam;
+	searcher * obj = new searcher(info->keyWord,info->ID);
+	for(int page = 1; page <= 100; page++){
+		if(flag == false){
+			info->thread_status = 0;
+			flag = ture;
+			 ExitThread(0);
+		}
+		obj->fun_main(page);
+	}
+	return 0;
+}
 
 
 void CMFCProject2Dlg::OnBnClickedButton1()
 {
 	// TODO: 在此添加控件通知处理程序代码
+	//清空控件
+	SetDlgItemText(IDC_EDIT2,_T(" "));
+	progress_search.SetPos(0);
+
+	/*获取窗口数据*/
+	GetDlgItemText(IDC_EDIT1,string_keyWord);
+	int index = cbb_id.GetCurSel();
+	cbb_id.GetLBText(index,string_id);
+	info.keyWord = string_keyWord;
+	info.ID = string_id;
+	thread_flag
+
+	AfxBeginThread(ThreadBody, &info);
 }
+
+ LRESULT CMFCProject2Dlg::OnUserThreadend(WPARAM wParam, LPARAM lParam){
+	 SetDlgItemText(IDC_EDIT2,_T("222222"));
+	 return 0;
+ }
 
 
 void CMFCProject2Dlg::OnNMCustomdrawProgress1(NMHDR *pNMHDR, LRESULT *pResult)

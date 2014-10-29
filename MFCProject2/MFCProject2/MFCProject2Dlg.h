@@ -6,6 +6,11 @@
 #include "afxwin.h"
 #include "afxcmn.h"
 
+struct Info{
+	CString keyWord;
+	CString ID;
+	DWORD thread_status;
+};
 
 // CMFCProject2Dlg 对话框
 class CMFCProject2Dlg : public CDialogEx
@@ -24,6 +29,10 @@ public:
 // 实现
 protected:
 	HICON m_hIcon;
+	CString string_keyWord;
+	CString string_id;
+	Info info;
+	BOOL thread_flag;
 
 	// 生成的消息映射函数
 	virtual BOOL OnInitDialog();
@@ -39,4 +48,6 @@ public:
 	CButton btn_search;
 	afx_msg void OnNMCustomdrawProgress1(NMHDR *pNMHDR, LRESULT *pResult);
 	CProgressCtrl progress_search;
+
+	afx_msg LRESULT OnUserThreadend(WPARAM wParam, LPARAM lParam);
 };

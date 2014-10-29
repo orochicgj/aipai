@@ -256,6 +256,8 @@ void CMFCProjectDlg::OnBnClickedButton1()
 	int index = cbb_id.GetCurSel();
 	cbb_id.GetLBText(index,string_id);
 
+	AfxBeginThread(ThreadBody, &info);
+
 }
 
 

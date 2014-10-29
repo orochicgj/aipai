@@ -1,0 +1,416 @@
+
+ <!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" /><!-- 防止IE8,7进入怪异模式 -->
+    <meta charset="gbk">
+    <meta name="data-spm" content="a230r" />
+    <script>
+        var beaconQueue = [],g_config={
+            appId: 3,
+            toolbar: false,
+            webww: true,
+            ap_mods: {
+                jstracker:[ 0.0001 ]
+            }
+        },g_hb_monitor_st=+new Date;
+
+        
+        window.SRP = window.SRP || {};
+        window.SRP.version ="";
+
+        window.givenByFE = {"currentPage":"mainsrp","suggest11":"off","importStyle":[],"p4pstatic":false,"machine":"s002132.et2","userid":"","sp_url":"vaHR0cDoLjEwLzEw1My4yNi4oyMDg3MDbi9zL2JpcmM9cD9zc3Mtc3JwMwMDIxLXuZXQyMzIZtJm91dG1qc29udDyJnJuPTEZmNhMzNihNWY5MDhhmMzI0OTE5NzA4MGMThkNjU5yJmhwc29WludD1tYhcmNoc2V1tJmFwcDm49aW5pJ1hMzYmdGnQ9bGxjbmFwMyZnc05aGNudDm5hdmlnJYXRvcj1hbGwmcz0w1eWVyJmJbG9jPSVFVCOSVCNSCRiVFNCVQyVFOCU54NyU5QyUZsZXZlMSaHVmbF9zPXRyZmxldWUmc3NfVja2V0YnmYWxnPTA0wX2J0czNwX2J0Jnhcz0wJnRbGwmYj1h0cm9zaW59ycGVjdGZpPXNlcnY2UmZGw9vc3JwJmNWh0bXByPnemlwdHBNkJnE9YX2YmZmFkcA6cXA9aXjMuMTQuMjIsMTU2LlkYXJlYWjQ0MDEwOMCxhY29va2llOmtPESGpndlZb0JjQ0FRhuQUtMNFibDdabSxZXQ6dWNr0MCZzZXR5nPXJlaWZV9zbGF0Y2g6ZWFyb247b21p9yZXRydFvbjtzeTpNlZXJ2aWxhYmVsX2Om9mZjs=","srpName":"mainsrp","P4PConfig":{"p4p_btsinfo":"","keyword":"asdfadsf","keywordGBK":"asdfadsf","catid":"","propertyid":"","ip":"14.23.156.2","frontcatid":"","loc":"","gprice":"","sort":"","sbid":"0","q2cused":0,"s":"","pageNum":1,"p4pbottom_up":false,"b2b_show":false,"etao_wanke":false,"etao_effect":false,"offset":0,"refpid":"","source":"","xmatch":0,"bucketcell":0,"bucketcell ":0,"auction_tag":"","ismall":"","tags":"","rn":"1233bfca08a5f932498f7080a918d659","srp":"mainsrp"}};
+        window.givenByFE.p4pstaticVersion = "1.1.4";
+        window.givenByFE.pagesize_bts = false;
+        window.givenByFEOld = {
+            currentPage: "mainsrp",
+                        suggest11: "off",
+            //有些模块出现在首屏但是却是在特殊情况才出现，需要加上模块的名称
+            importStyle: [
+                            ]
+        }
+    </script>
+
+    <!-- S GLOBAL CSS -->
+<link rel="stylesheet" href="http://g.tbcdn.cn/tb/global/3.2.2/global-min.css">
+<!-- E GLOBAL CSS --><!-- S GLOBAL JS -->
+<script src="http://g.tbcdn.cn/??kissy/k/1.4.2/seed-min.js,tb/global/3.2.2/global-min.js"></script>
+<!-- E GLOBAL JS -->
+    <link rel="stylesheet" href="http://g.tbcdn.cn/tb/??bsrp/0.22.0/publish/global.css,srpbase/0.12.0/index.css,srpbase/0.12.0/beta.css,bsrp/0.22.0/publish/srp.css,bsrp/0.22.0/publish/async.css" />
+
+        <title>asdfadsf_淘宝搜索</title>
+    <!--    <script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy-min.js?t=20130711" data-config="{combine:true}"></script>-->
+    <script bx-config="{autoPagelet:true}" src="http://a.tbcdn.cn/apps/e/brix/1.0/brix-min.js?t=20130718"></script>
+    <script src="http://g.tbcdn.cn/tb/??bsrp/0.22.0/publish/init.js,srpbase/0.12.0/index.js,srpbase/0.12.0/beta.js,bsrp/0.22.0/publish/srp.js,bsrp/0.22.0/publish/async.js"  charset="utf-8">
+    </script>
+    
+    <link rel="search" type="application/opensearchdescription+xml" title="淘宝搜索" href="/opensearch.xml">
+    <script>
+
+        window.__SafeUrl__ = 'http://s.taobao.com/search?q=asdfadsf&spm=1.7274553.1997520841.1&commend=all&ssid=s5-e&search_type=item&sourceId=tb.index&initiative_id=tbindexz_20141029';
+        window.PFORP = window.PFORP || {};
+        window.PFORP.DiscountFlag = true;
+                window.PFORP.TextLinkFlag = true;
+        window.Responsive = window.Responsive || {};
+        window.Responsive.cookie = false;
+        window.Responsive.status = true;
+        window.Responsive.method = 'screen';
+
+        window.SRP.Global = {
+            q: 'asdfadsf',
+            encode_q: 'asdfadsf',
+            loc : '',
+            cat: '',
+            catLevelOne: '0',
+            ppath: '',
+            s: '1',
+            tnk: '',
+            bucketid: '0',
+            algBucketid: '0',
+            multi_bucket: '0_0_0_0_0_0_0_0',
+            bucketcell: '0',
+            exWideScreen: true,
+            style: 'grid',
+            initiative_id: 'tbindexz_20141029',
+            etao_wanke:false,
+            p4pbottom_up:false,
+            etao_effect:false,
+            buckets:''
+
+        };
+
+        SEARCH.config('adConfig', {"p4pItems":"http:\/\/tmatch.simba.taobao.com\/?name=tbuad&count=5&q2cused=0&p4p=__p4p_sidebar__%2C__p4p_bottom__&keyword=asdfadsf&pid=420434_1006%2C420435_1006&sort=&ip=14.23.156.2&offset=0&rct=11&propertyid=&sbid=0&o=j&se=1233bfca08a5f932498f7080a918d659","p4pShop":"http:\/\/tmatch.simba.taobao.com\/?name=dpad&count=3&q2cused=0&p4p=__p4p_sidebar_shop__&keyword=asdfadsf&pid=420930_1006&sort=&ip=14.23.156.2&offset=0&rct=0&propertyid=&sbid=0&o=j&elemtid=7&layouttid=234&otsdk=1&se=1233bfca08a5f932498f7080a918d659","etaorecommend":"http:\/\/s.etao.com\/search.php?q=asdfadsf&v=auction&format=json&tbpm=t&callback=__p4p_etao_sidebar__&n=9&from=tb_main&offset=0&_cat=50023720%252C50023719%252C50023722%252C50023719%252C50023721%252C50023718&cat=0","p4pdiscount":"http:\/\/show.re.taobao.com\/feature_v1.htm?feature_names=promoName,promoPrice,promoOtherNeed,coinTips,dsrDescribe,dsrService,dsrDeliver,dsrDescribeGap,dsrServiceGap,dsrDeliverGap&from=taobao_search","b2bkeeper":"","p4plink":"http:\/\/textlink.simba.taobao.com\/lk?pid=419110_1006"});
+                window.SRP.Icon = {
+            data: [{"innerText":"\u5929\u732b\u6d3b\u52a8","title":"11.11\u8d2d\u7269\u72c2\u6b22\u4e00\u5b9a\u8fc7\u763e","url":"http:\/\/www.tmall.com\/go\/market\/promotion-act\/2014-1111-main-entry.php?ad_id=&am_id=1301295439a1f0a27948&cm_id=&pm_id=","class":"icon-supple-1111-crazybuy"},{"innerText":"\u5929\u732b\u4f18\u60e0","title":"11.11\u5f53\u5929\u5e95\u4ef7\u70ed\u5356","url":"http:\/\/www.tmall.com\/go\/market\/promotion-act\/2014-1111-main-entry.php?ad_id=&am_id=1301295439a1f0a27948&cm_id=&pm_id=","class":"icon-supple-1111-tehui"},{"innerText":"\u65c5\u822a\u6807","title":"\u4e16\u754c\u89e6\u624b\u53ef\u884c","url":"http:\/\/trip.taobao.com\/go\/market\/trip\/trip1411\/trip1111.php?ad_id=&am_id=1301297287b1afd16c56&cm_id=&pm_id=","class":"icon-supple-1111-travel"},{"innerText":"\u96c6\u5e02\u6807","title":"\u53c2\u52a0\u6dd8\u5b9d\u5609\u5e74\u534e","url":"http:\/\/jnh.taobao.com","class":"icon-supple-1111-jianianhua"},{"innerText":"\u638c\u67dc\u70ed\u5356\u5b9d\u8d1d","title":"\u638c\u67dc\u70ed\u5356\u5b9d\u8d1d","url":"http:\/\/re.taobao.com\/search?keyword={q}&refpid=420432_1006&frcatid={cat}&{extUrl}","class":"icon-service-remai"},{"innerText":"\u5f53\u5b63\u65b0\u54c1\u5b9d\u8d1d","title":"\u5f53\u5b63\u65b0\u54c1\u5b9d\u8d1d","url":"http:\/\/service.taobao.com\/support\/knowledge-1138476.htm","class":"icon-service-new"},{"innerText":"\u4e8c\u624b\u5b9d\u8d1d","title":"\u4e8c\u624b\u5b9d\u8d1d","url":"http:\/\/2.taobao.com","class":"icon-service-ershou"},{"innerText":"\u5929\u732b\u5b9d\u8d1d","title":"\u5c1a\u5929\u732b\uff0c\u5c31\u8d2d\u4e86~","url":"http:\/\/www.tmall.com\/","class":"icon-service-tianmao"},{"innerText":"\u751f\u6001\u519c\u4e1a\u5b9d\u8d1d","title":"\u751f\u6001\u519c\u4e1a\u5b9d\u8d1d\u3002\u65e0\u519c\u836f\u3001\u65e0\u5316\u80a5\u3001\u65e0\u6dfb\u52a0\u5242\uff01","url":"http:\/\/ny.taobao.com\/","class":"icon-service-youjinongye"},{"innerText":"\u5929\u732b\u56fd\u9645\u5b9d\u8d1d","title":"\u5929\u732b\u56fd\u9645\u5b9d\u8d1d\u3002\u6211\u4eec\u7684\u5546\u5bb6\u5728\u6d77\u5916~","url":"http:\/\/www.tmall.hk\/","class":"icon-service-tianmaoguoji"},{"innerText":"\u5168\u7403\u8d2d\u4e13\u4e1a\u4e70\u624b\u5b9d\u8d1d","title":"\u5168\u7403\u8d2d\u4e13\u4e1a\u4e70\u624b\u5b9d\u8d1d\u3002\u8db3\u4e0d\u51fa\u6237\uff0c\u6dd8\u904d\u5168\u7403~","url":"http:\/\/global.taobao.com\/","class":"icon-service-zyms"},{"innerText":"\u6dd8\u5b9d\u65c5\u884c\u5b9d\u8d1d","title":"\u6dd8\u5b9d\u65c5\u884c\u5b9d\u8d1d\u3002\u7231\u68a6\u60f3\uff0c\u53bb\u65c5\u884c~","url":"http:\/\/trip.taobao.com\/","class":"icon-service-lvxing"},{"innerText":"\u6d77\u5916\u76f4\u90ae","title":"\u6d77\u5916\u76f4\u90ae","url":"http:\/\/service.taobao.com\/support\/seller\/knowledge-5836928.htm","class":"icon-service-haiwaizhiyou"},{"innerText":"\u91d1\u724c\u5356\u5bb6","title":"\u91d1\u724c\u5356\u5bb6","url":"http:\/\/www.taobao.com\/go\/act\/jpmj.php","class":"icon-service-jinpaimaijia"},{"innerText":"\u516c\u76ca\u5b9d\u8d1d","title":"\u516c\u76ca\u5b9d\u8d1d\u3002\u4e00\u7b14\u4ea4\u6613\uff0c\u4e00\u6b21\u516c\u76ca~","url":"http:\/\/service.taobao.com\/support\/knowledge-1117985.htm","class":"icon-service-gongyibaobei"},{"innerText":"\u7535\u5b50\u51ed\u8bc1","title":"\u7535\u5b50\u51ed\u8bc1","url":"http:\/\/www.taobao.com\/go\/act\/315\/dzpz.php","class":"icon-service-dianzipingzheng"},{"innerText":"\u6b63\u54c1\u4fdd\u969c","title":"\u6b63\u54c1\u4fdd\u969c","url":"http:\/\/www.tmall.com\/go\/chn\/mall2010\/promise.php?#ZPBZ","class":"icon-service-zhengpin"},{"innerText":"\u54c1\u724c\u6388\u6743","title":"\u5356\u5bb6\u627f\u8bfa\uff1a\u5b9d\u8d1d\u7531\u54c1\u724c\u5382\u5546\u76f4\u63a5\u53d1\u8d27\uff0c\u54c1\u724c\u5382\u5546\u6388\u6743\u9500\u552e\uff01","url":"http:\/\/www.taobao.com\/go\/act\/sale\/ppsqfx.php","class":"icon-service-shouquan"},{"innerText":"\u5bc4\u552e\u4ea4\u6613","title":"\u5bc4\u552e\u4ea4\u6613","url":"http:\/\/service.taobao.com\/support\/knowledge-847890.htm","class":"icon-service-jishou"},{"innerText":"\u65e0\u8d27\u8d54\u4ed8","title":"\u65e0\u8d27\u8d54\u4ed8","url":"http:\/\/service.taobao.com\/support\/knowledge-1109109.htm","class":"icon-service-peifu"},{"innerText":"\u62c5\u4fdd\u4ea4\u6613","title":"\u62c5\u4fdd\u4ea4\u6613","url":"http:\/\/service.taobao.com\/support\/knowledge-847887.htm","class":"icon-service-danbao"},{"innerText":"\u81ea\u52a8\u5145\u503c","title":"\u81ea\u52a8\u5145\u503c","url":"http:\/\/service.taobao.com\/support\/knowledge-1120859.htm","class":"icon-service-zidongchongzhi"},{"innerText":"\u5e73\u53f0\u4ee3\u5145","title":"\u5e73\u53f0\u4ee3\u5145","url":"http:\/\/chongzhi.taobao.com\/","class":"icon-service-daichong"},{"innerText":"\u81ea\u52a8\u53d1\u8d27","title":"\u81ea\u52a8\u53d1\u8d27","url":"http:\/\/service.taobao.com\/support\/knowledge-1119683.htm","class":"icon-service-zidongfahuo"},{"innerText":"\u5b9e\u4ef7\u6709\u623f","title":"\u5356\u5bb6\u627f\u8bfa\u4ef7\u683c\u771f\u5b9e\uff0c\u4fdd\u8bc1\u6709\u623f\uff0c\u65e0\u623f\u8d54\u4ed8","url":"http:\/\/service.taobao.com\/support\/knowledge-5074991.htm","class":"icon-service-shijiayoufang"},{"innerText":"\u94c1\u5b9a\u51fa\u6e38","title":"\u5356\u5bb6\u627f\u8bfa\u94c1\u5b9a\u51fa\u6e38\uff0c\u82e5\u66f4\u6539\u6216\u53d6\u6d88\u884c\u7a0b\uff0c\u65e0\u6761\u4ef6\u5168\u989d\u9000\u6b3e\u5e76\u989d\u5916\u8d54\u4ed8","url":"http:\/\/service.tmall.com\/support\/tmall\/knowledge-5442595.htm","class":"icon-service-tiedingchuyou"},{"innerText":"\u7834\u635f\u8865\u5bc4","title":"\u7834\u635f\u8865\u5bc4","url":"http:\/\/www.taobao.com\/go\/act\/xb2\/index.php?service=7&ad_id=&am_id=&cm_id=14005851957409f914c1&pm_id=","class":"icon-service-posunbuji"},{"innerText":"\u54c1\u8d28\u627f\u8bfa","title":"\u54c1\u8d28\u627f\u8bfa","url":"http:\/\/www.taobao.com\/go\/act\/xb2\/index.php?service=6&ad_id=&am_id=&cm_id=1400585192c5bff49b5c&pm_id=","class":"icon-service-pinzhichengnuo"},{"innerText":"\u539f\u4ea7\u5730\u4fdd\u969c","title":"\u539f\u4ea7\u5730\u4fdd\u969c","url":"http:\/\/www.taobao.com\/market\/food\/foodorigin.php?ad_id=&am_id=13010790297c37e113a6&cm_id=&pm_id=","class":"icon-service-ycdbz"},{"innerText":"\u8d28\u91cf\u8ba4\u8bc1","title":"\u8d28\u91cf\u8ba4\u8bc1","url":"http:\/\/www.taobao.com\/market\/food\/qs.php","class":"icon-service-qs"},{"innerText":"\u514d\u8d39\u6362\u65b0","title":"\u514d\u8d39\u6362\u65b0","url":"http:\/\/service.taobao.com\/support\/knowledge-5814547.htm?spm=0.0.0.0.mXJWVb&dkey=searchview","class":"icon-service-free-chang"},{"innerText":"\u652f\u6301\u5b89\u88c5","title":"\u652f\u6301\u5b89\u88c5","url":"http:\/\/www.taobao.com\/market\/car\/mjxz.php?ad_id=&am_id=1301291675946d154e6f&cm_id=&pm_id=&spm%EF%BC%9D2013.1.1998099789.d4919809","class":"icon-service-zhichianzhuang"},{"innerText":"\u7acb\u5373\u8bd5\u7528","title":"\u70b9\u51fb\u7acb\u5373\u8bd5\u7528\u3002\u8bd5\uff0c\u662f\u4e00\u79cd\u751f\u6d3b\u6001\u5ea6\uff01","url":"http:\/\/try.taobao.com\/go_item.htm?shop_item_id={nid}","class":"icon-service-shiyong"},{"innerText":"\u7acb\u5373\u8bd5\u8bfb","title":"\u70b9\u51fb\u7acb\u5373\u8bd5\u8bfb\u3002\u6175\u61d2\u7684\u9633\u5149\uff0c\u4e00\u676f\u8336\uff0c\u4e00\u6bb5\u9605\u8bfb\u597d\u65f6\u5149~","url":"http:\/\/shuzi.taobao.com\/play\/itemPlay.htm?id={nid}&from=tb_search","class":"icon-supple-shidu"},{"innerText":"\u8d60\u9001\u8fd0\u8d39\u9669","title":"\u5356\u5bb6\u8d60\u9001\u9000\u8d27\u8fd0\u8d39\u9669","url":"http:\/\/www.taobao.com\/go\/act\/baoxian\/yunfeixian.php","class":"icon-service-yunfeixian"},{"innerText":"\u8ba4\u8bc1\u4e8c\u624b\u8f66","title":"\u8ba4\u8bc1\u4e8c\u624b\u8f66","url":"http:\/\/www.taobao.com\/market\/car\/rztwo.php","class":"icon-service-ershouche"},{"innerText":"7\u5929\u9000\u6362","title":"7\u5929\u9000\u6362","url":"http:\/\/www.tmall.com\/go\/chn\/mall2010\/promise.php?#QTTH","class":"icon-service-qitiantuihuan"},{"innerText":"7\u5929\u65e0\u7406\u7531","title":"7\u5929\u65e0\u7406\u7531","url":"http:\/\/service.taobao.com\/support\/knowledge-5701303.htm","class":"icon-service-qitiantuihuo"},{"innerText":"{contract_time}\u5929\u9000\u8d27","title":"{contract_time}\u5929\u9000\u8d27","url":"http:\/\/xiaobao.taobao.com\/contract\/item_contract_detail.htm?item_id={nid}&contract_id=2","class":"icon-service-7tianjia"},{"innerText":"\u6d88\u8d39\u8005\u4fdd\u969c","title":"\u6d88\u8d39\u8005\u4fdd\u969c","url":"http:\/\/www.taobao.com\/go\/act\/315\/xfzbz_rsms.php","class":"icon-service-xiaobao"},{"innerText":"\u652f\u6301\u4fe1\u7528\u5361","title":"\u652f\u6301\u4fe1\u7528\u5361\u652f\u4ed8","url":"http:\/\/www.taobao.com\/go\/act\/sale\/kadepay.php?ad_id=&am_id=&cm_id=14001249574b437a411d&pm_id=","class":"icon-service-xinyongka"},{"innerText":"\u652f\u6301\u8d27\u5230\u4ed8\u6b3e","title":"\u652f\u6301\u8d27\u5230\u4ed8\u6b3e","url":"http:\/\/www.taobao.com\/go\/act\/sale\/cod2.php","class":"icon-service-huodaofukuan"}],
+            dynamic: {}        }
+    </script>
+    <script src="/js/tracerule.js?t=2014102814"></script>
+</head>
+<body data-spm="1"><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&asid=AAC7llBU4HJlfokYpf8=",id="tb-beacon-aplus",src=(location>"https"?"//s":"//a")+".tbcdn.cn/s/aplus_v2.js")
+</script>
+
+<script>
+        SEARCH.config('screenWidth', false);
+    SEARCH.config('exWideScreen', false);
+    SEARCH.run('initResponsive');
+
+</script>
+
+
+<!-- global 3.2 -->
+<!-- S GLOBAL HTML -->
+<div id="J_SiteNav" class="site-nav">
+    <div id="J_SiteNavBd" class="site-nav-bd">
+        <ul id="J_SiteNavBdL" class="site-nav-bd-l"></ul>
+        <ul id="J_SiteNavBdR" class="site-nav-bd-r"></ul>
+    </div>
+</div>
+<!-- --><!-- 全网顶通 --><!-- E GLOBAL HTML --><script>
+    SEARCH.run('BODY_TOP');
+</script>
+
+<div id="page" class=" newsrp">
+    <div class="tb-wrapper">
+    <div class="tb-wrapper-main">
+        <div class="tb-header  J_hasFixedSearchBox " bx-path="components/srpbase/header/" bx-name="header">
+
+            <div class="tb-logo">
+                <a class="icon-btn-logo" href="http://www.taobao.com/" target="_top">淘宝网</a>
+
+                <div class="more-button">
+                    <div class="more-label"><span>更多市场</span><b class="icon-btn-arrow-2-h"></b></div>
+                </div>
+            </div>
+            <div class="tb-search">
+                <div class="search-box">
+                    <!-- 这是一个tab组件 -->
+                    <div class="search-triggers">
+                        <ul class="ks-switchable-nav" id="J_SearchTab">
+                        <li class="selected" data-action="/search" data-defaultpage="nogo" data-searchtype="item"><a
+                                    class="search-site-link" href="">宝贝</a></li>
+                            <li class="" data-action="http://shopsearch.taobao.com/search" data-searchtype="shop">
+                                <a class="search-site-link" href="/search?app=shopsearch">店铺</a>
+                            </li>
+                        </ul>
+                        <s class="icon-btn-arrow-2-h"></s>
+                    </div>
+                    <div class="search-panel search-srp-panel ks-switchable-content">
+                        <form id="J_SearchForm" action="/search" method="get">
+                            <input type="hidden" value="asdfadsf"
+                                   id="q_value">
+                            <input type="hidden"
+                                   value="staobaoz_20141029"
+                                   name="initiative_id">
+                                                            <input type="hidden"
+                                       name="js"
+                                       value="1"
+                                    />
+                                                            <input type="hidden"
+                                       name="stats_click"
+                                       value="search_radio_all%3A1"
+                                    />
+                            
+                            <div class="search-panel-fields search-srp-panel-fields search-common-panel">
+                                <div class="search-button">
+                                    <button class="icon-btn-search" type="submit">搜 索</button>
+                                </div>
+
+                                <div class="input-auto" id="combobox">
+                                    <input aria-haspopup="true"
+                                           aria-combobox="list" role="combobox" combobox="off"
+                                           class="ks-combobox-input" tabindex="0"
+                                           id="q" name="q"
+                                           value="asdfadsf"
+                                           placeholder="请输入要搜索的词"
+                                           _default="请输入要搜索的词" lang="zh-CN"
+                                           autocomplete="off"
+                                        />
+                                </div>
+                            </div>
+                                                    </form>
+                    </div>
+                </div>
+				
+								<div class="tb-fixed-logo">
+                    <a class="icon-btn-logo-s" href="http://www.taobao.com/" target="_top">淘宝网</a>
+                </div>
+                <div class="query-exclude-panel">
+                    <span class="panel-head"><span class="not-important">在结果中</span>排除</span>
+                    <span class="panel-body">
+                        <input id="J_excludeQueryInput" placeholder="请输入要排除的词"/>
+                        <a class="submit-btn J_excludeBtn" href="javascript:;">确定</a>
+                    </span>
+                    <a title="取消浮动跟随" class="J_fixedCloseBtn close-btn icon-btn-x-round" href="javascript:;"></a>
+                </div>
+                                
+            </div>
+        </div>
+    </div>
+</div>
+            <div class="tb-container ">
+    <div class="tb-wrapper">
+        <div class="tb-wrapper-main">
+                                                    
+                                    
+            <noscript>
+                <style>.ad {
+                        display: none
+                    }</style>
+                <div class="search-noresult">
+                    <p><b>图片无法查看？点此<a href="http://bangpai.taobao.com/group/thread/400769-7367089.htm" target="_blank">查看解决方法</a></b><img
+                            src="http://img.tongji.linezing.com/1663546/tongji.gif"></p>
+                </div>
+            </noscript>
+                            <div class="tb-combobar">
+    <div class="combobar-noresult" bx-name="combobar-noresult" bx-path="components/combobar-noresult/"
+         style="margin:20px;">
+                <div class="taogongzai"></div>
+        <div class="item-not-found">
+            <div>没有找到与“<span class="h">asdfadsf</span>”相关的宝贝</div>
+        </div>
+            </div>
+</div>
+                                                            
+        </div>
+    </div>
+
+    <div class="tb-wrapper-sub" data-spm="17">
+    </div>
+</div>
+<div class="tb-bottom">
+</div>
+<!--辅助导航-->
+<div class="tb-supplement search-panel search-srp-panel search-panel-bottom" bx-config="{}" bx-path="components/newsrp/supplement-suggest/"
+     bx-name="supple-suggest" data-spm="1">
+
+        <form action="search" method="get" id="J_minsearch">
+        <input type="hidden" name="initiative_id" value="staobaoz_20120803">
+        <input type="hidden" value="grid" id="style" name="style">
+                    <div class="search-panel-fields search-srp-panel-fields search-common-panel">
+            <div class="input-auto">
+                <input accesskey="s" name="q" maxlength="60" autocomplete="off" value="asdfadsf" id="title" placeholder="请输入要搜索的词"  x-webkit-grammar="builtin:translate" lang="zh-CN"/>
+            </div>
+
+            <div class="search-button">
+                <button class="icon-btn-search" type="submit">搜索</button>
+            </div>
+        </div>
+    </form>
+    
+
+</div><!--辅助导航-->
+<!--底部内容-->
+<div class="tb-footer" data-spm="19">
+    
+<div class="footer" data-spm="1997523009">
+    <div class="footer-hd">
+        <p>
+            <a href="//page.1688.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a>
+            <b>|</b>
+            <a href="//www.alibaba.com">阿里巴巴国际站</a>
+            <b>|</b>
+            <a href="//www.1688.com">阿里巴巴中国站</a>
+            <b>|</b>
+            <a href="//www.aliexpress.com">全球速卖通</a>
+            <b>|</b>
+            <a href="//www.taobao.com">淘宝网</a>
+            <b>|</b>
+            <a href="//www.tmall.com">天猫</a>
+            <b>|</b>
+            <a href="//ju.taobao.com">聚划算</a>
+            <b>|</b>
+            <a href="//www.etao.com">一淘</a>
+            <b>|</b>
+            <a href="//www.alimama.com">阿里妈妈</a>
+            <b>|</b>
+            <a href="//trip.taobao.com">淘宝旅行</a>
+            <b>|</b>
+            <a href="//www.xiami.com">虾米</a>
+            <b>|</b>
+            <a href="//www.aliyun.com">阿里云计算</a>
+            <b>|</b>
+            <a href="//www.yunos.com">云OS</a>
+            <b>|</b>
+            <a href="//www.net.cn">万网</a>
+            <b>|</b>
+            <a href="//www.alipay.com">支付宝</a>
+            <b>|</b>
+            <a href="//www.laiwang.com/">来往</a>
+        </p>
+    </div>
+    <div class="footer-bd">
+        <p>
+            <a href="//www.taobao.com/about">关于淘宝</a>
+            <a href="//www.taobao.com/about/partners.php">合作伙伴</a>
+            <a href="//pro.taobao.com">营销中心</a>
+            <a href="mailto:lianzheng@taobao.com" title="lianzheng@taobao.com" target="_self">廉正举报</a>
+            <a href="//service.taobao.com/support/main/service_route.htm">联系客服</a>
+            <a href="//open.taobao.com">开放平台</a>
+            <a href="//www.taobao.com/about/join.php">诚征英才</a>
+            <a href="//www.taobao.com/about/contact.php">联系我们</a>
+            <a href="//www.taobao.com/sitemap.php">网站地图</a>
+            <a href="//www.taobao.com/about/copyright.php">法律声明</a>
+            <em>&copy; 2014 Taobao.com 版权所有</em>
+              <span style="color:#fff;">
+            s002132.et2        </span>
+        </p>
+        <p>
+            <span>网络文化经营许可证：<a href="//img04.taobaocdn.com/tps/i4/T1ysdvXtNeXXcPpEkQ-972-636.jpg">文网文[2010]040号</a></span>
+            <b>|</b>
+            <span>增值电信业务经营许可证：浙B2-20080224-1</span>
+            <b>|</b>
+            <span>信息网络传播视听节目许可证：1109364号</span>
+        </p>
+    </div>
+    <div class="footer-ft">
+        <a href="//www.pingpinganan.gov.cn/web/index.aspx?file=index.aspx"><img width="36" height="36" src="//img01.taobaocdn.com/tps/i1/T1FeW3XXNfXXXXXXXX-36-36.gif"></a>
+        <a href="//idinfo.zjaic.gov.cn/bscx.do?method=hddoc&id=33018400000067" class="mod mod-a"></a>
+        <a href="//idinfo.zjaic.gov.cn/bscx.do?&method=hddoc&id=33018400000067" class="mod mod-b"></a>
+        <a href="//www.theclimategroup.org.cn/about/friend" class="mod mod-c"></a>
+        <a href="https://ss.cnnic.cn/verifyseal.dll?&sn=2010062300100001357&pa=20100701" class="mod mod-d"></a>
+        <a href="//www.ppaaol.com/verifySite.do?id=1051" class="mod mod-e"></a>
+    </div>
+</div></div><!--页脚内容-->
+    </div>
+
+<div class="tb-side" bx-name="sidebar" bx-path="components/srpbase/sidebar/">
+    <ul>
+        <li class="gotop">
+            <a trace="toolBarTohead" href="javascript:void(0)">
+                <span class="icon-btn-top">回到顶部</span>
+            </a>
+        </li>
+        <li class="advice advise-side-suggest" _source="/search?app=api&m=postfeedback&url=http%3A%2F%2Fs.taobao.com%2Fsearch%3Fq%3Dasdfadsf%26spm%3D1.7274553.1997520841.1%26commend%3Dall%26ssid%3Ds5-e%26search_type%3Ditem%26sourceId%3Dtb.index%26initiative_id%3Dtbindexz_20141029%26">
+            <a trace="toobarFeedback" href="javascript:;" target="_blank" class="">
+                <span class="icon-btn-feedback">用户反馈</span>
+            </a>
+        </li>
+        <li class="help">
+            <a trace="toolbarSearchhelp" target="_blank" href="http://s.taobao.com/faq.php?spm=a230r.1.2.3.RgGkQB">
+                <span class="icon-btn-help">搜索帮助</span>
+            </a>
+        </li>
+        <li class="history">
+            <a trace="toolbarHistory" target="_blank" href="http://lu.taobao.com/newMyPath.htm?scm=12307.3.0.0 " >
+                <span class="icon-btn-history">搜索历史</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="dialog-box" id="J_dialog_adviseForm" >
+    <div class="dialog-shim" >
+        <div class="dialog-body">
+            <div class="dialog-hd">
+                <h4>说说我使用搜索的感受</h4>
+                <span class="sitelink"><a href="http://bangpai.taobao.com/group/400769.htm" target="_blank">搜索官方论坛</a> | <a href="/faq.html" target="_blank">了解新版搜索</a></span>
+            </div>
+            <div class="dialog-content">
+                <div id="J_adviseForm" class="advise tdg-advise search-popup-window" aria-label="注意：弹窗, 按下 Esc 键关闭" >
+                    <iframe src="about:blank" name="feedback"></iframe>
+                    <form action="http://search.feedback.taobao.com/talkers/add_feedback.php" target="feedback" method="post">
+                        <div class="search-popup-window-wrapper">
+                            <div class="bd">
+                                <input type="hidden" name="sourceid" value="28">
+                                <input type="hidden" name="userip" value="14.23.156.2">
+                                <input type="hidden" name="fromurl" value="/search?q=asdfadsf&spm=1.7274553.1997520841.1&commend=all&ssid=s5-e&search_type=item&sourceId=tb.index&initiative_id=tbindexz_20141029">
+                                <input type="hidden" name="surveyid" value="55">
+                                <input type="hidden" name="query" value="asdfadsf">
+                                <input type="hidden" name="categoryid" value="0">
+                                <input type="hidden" name="userid">
+                                <input type="hidden" name="bucket_id" value="000000">
+                                <input type="hidden" name="machine" value="s002132.et2">
+                                <div id="J_adviseCont">
+                                    <div class="models">
+                                        <dl class="firstmodel">
+                                            <dt>不满意：</dt>
+                                            <dd>
+                                                <ul class="advise-options">
+                                                    <li><label><input type="checkbox" name="causes[]" value="201"> 通过搜索找不到想要的宝贝</label></li>
+                                                    <li><label><input type="checkbox" name="causes[]" value="202"> 宝贝排序不合理</label></li>
+                                                    <li><label><input type="checkbox" name="causes[]" value="203"> 商品分类不能帮我快速找到宝贝</label></li>
+                                                    <li><label><input type="checkbox" name="causes[]" value="204"> 筛选功能不方便我筛选宝贝</label></li>
+                                                    <li><label><input type="checkbox" name="causes[]" value="205"> 一行四图不方便我查看宝贝</label></li>
+                                                </ul>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>满意：</dt>
+                                            <dd>
+                                                <ul class="advise-options">
+                                                    <li><label><input type="checkbox" name="causes[]" value="206"> 通过搜索找到了想要的宝贝</label></li>
+                                                    <li><label><input type="checkbox" name="causes[]" value="207"> 宝贝排序合理</label></li>
+                                                    <li><label><input type="checkbox" name="causes[]" value="208"> 商品分类能帮我快速找到宝贝</label></li>
+                                                    <li><label><input type="checkbox" name="causes[]" value="209"> 筛选功能方便我筛选宝贝</label></li>
+                                                    <li><label><input type="checkbox" name="causes[]" value="210"> 一行四图方便我查看宝贝</label></li>
+                                                </ul>
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                    <div class="advise-more">
+                                        <p>将您对淘宝搜索的建议或者想法告诉我们吧，我们将随时倾听您的感受：）</p>
+                                        <textarea name="content" id="J_AdviseInput" rows="6" cols="80" class="init"></textarea>
+                                        <button type="submit"> 提交 </button>
+                                        <span class="inputTips"><em id="J_inputTip">0</em> / <span id="J_maxLength">1000</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    window.maidian = "searchurl=1"+"&cat=null"+"&direct_cat="+"&at_lflog=5-0-0-0-{p4p_isOK}-03-0-all|&at_bucketid=0&multi_bucket=0_0_0_0_0_0_0_0&at_colo=et2&at_host=s002132.et2&at_alitrackid=&last_alitrackid="+"&stats_show=maxentclassifier_flag%3A1%3Bs%3Amainsearch%3Buser_group%3AClusterMergeInfo%3Aexcellent%3A0.1%3Blunbo%3A0.9%2Cmd_QueryIntentionType%3A%3Btab_type%3Aall%3Bsn_hide%3A0%3Brewrite%3A0%3Bpersonal_sc%3A0%3Bomit_rewrite%3A1%3Bfew_results_flag%3A1"+"&rn=1233bfca08a5f932498f7080a918d659&nick=&multivariate=&srppage=1";    window.SRP.stat = {
+        data: {"auctionReturnNum":0,"doufuAuctionNum":0,"doufuAuctionNumClick":0,"if_rs":0,"if_shop":0,"if_tank":0,"show_compass":5,"totalHits":0,"iframe_show":"","statsShow":"maxentclassifier_flag%3A1%3Bs%3Amainsearch%3Buser_group%3AClusterMergeInfo%3Aexcellent%3A0.1%3Blunbo%3A0.9%2Cmd_QueryIntentionType%3A%3Btab_type%3Aall%3Bsn_hide%3A0%3Brewrite%3A0%3Bpersonal_sc%3A0%3Bomit_rewrite%3A1%3Bfew_results_flag%3A1","vertical":"","auctionNids":[],"auctionPrices":[],"ifDoufuAuction":[],"priceSorts":["price-asc","price-desc","total-asc","total-desc"],"query":"asdfadsf","remoteip":"14.23.156.2","hostname":"s002132.et2","colo":"et2","multi_bucket":"0_0_0_0_0_0_0_0","rn":"1233bfca08a5f932498f7080a918d659","bucketId":0,"nick":"","sort":"all","sort2":"","alitrackid":"","lastAlitrackid":"","cat":"null","catdirectOld":null,"catdirectForMaidian":"","catdirect":null,"catLevelOne":0,"cps":"","userGroup":"user_group:ClusterMergeInfo:excellent:0.1;lunbo:0.9,md_QueryIntentionType:","tabType":"tab_type:all","fromPos":"","navpage":"page:1","birthday_trace":"","nav_properties":null,"nav_click":null,"nav_cateclick":null,"nav_categories":null,"NavHideBtnClick":"sn_hide_button:1","NavHideClick":"sn_hide:0","noresult":"03","newRewriteType":"rewrite:0","if_r_recommend":0,"personal_sc":"personal_sc:0","auctionNicks":[],"auctionIconServices":[],"omit_rewrite":"omit_rewrite:1","srppage":"1","statsClick":"maxentclassifier_flag%3A1%3Bs%3Amainsearch%3Buser_group%3AClusterMergeInfo%3Aexcellent%3A0.1%3Blunbo%3A0.9%2Cmd_QueryIntentionType%3A%3Btab_type%3Aall%3Bsn_hide%3A0%3Bomit_rewrite%3A1%3Bfew_results_flag%3A1","multivariate":""}    };
+    SEARCH.config('iframeTrace', "''");
+</script>
+<script>
+    SEARCH.run('BODY_BOTTOM');
+</script>
+</body>
+</html>
+
+
