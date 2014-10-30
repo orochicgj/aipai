@@ -3,6 +3,8 @@
 #include <fstream>
 #include <UrlMon.h>
 #pragma comment(lib, "urlmon.lib")
+#include <wininet.h>
+#pragma comment(lib, "wininet.lib")
 
 typedef unsigned char BYTE;
 inline BYTE toHex(const BYTE &x)
@@ -28,6 +30,7 @@ int searcher::fun_main(int page){
 	}else{
 		URL = url_head + url_keyWord + _T("&") + url_spm + _T("&") + url_option+ _T("&") + url_date;
 	}
+	//DeleteUrlCacheEntry(URL);
 	HRESULT result =  URLDownloadToFile(0, URL, filePath, 0, NULL);
 	if(result == S_OK){
 		if(!searchLocation(filePath,string_id)){
@@ -39,8 +42,6 @@ int searcher::fun_main(int page){
 			ffout.flush();
 			ffout.close();
 		}else{
-			//HWND handle = AfxGetMainWnd() -> m_hWnd;
-			//PostMessage(handle,MESSAGE_UPDATE_EDIT, 0, 0);
 			if(page == 100){
 				HWND handle = AfxGetMainWnd() -> m_hWnd;
 				PostMessage(handle,MESSAGE_UPDATE_EDIT, page, 0);

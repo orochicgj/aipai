@@ -1,0 +1,31 @@
+﻿生成启动时间为 2014/10/30 23:49:00。
+     1>项目“E:\github\MFCProject2\MFCProject2\MFCProject2.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在对“Release\MFCProject2.unsuccessfulbuild”执行 Touch 任务。
+       ClCompile:
+         所有输出均为最新。
+         所有输出均为最新。
+         E:\developTool\vs2010\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D _WINDOWS /D NDEBUG /D _AFXDLL /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt searcher.cpp
+         searcher.cpp
+     1>searcher.cpp(117): warning C4244: “初始化”: 从“std::streamoff”转换到“unsigned int”，可能丢失数据
+       ResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D NDEBUG /D _AFXDLL /l"0x0804" /IRelease\ /nologo /fo"Release\MFCProject2.res" MFCProject2.rc 
+       Link:
+         E:\developTool\vs2010\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\github\MFCProject2\Release\MFCProject2.exe" /INCREMENTAL:NO /NOLOGO /MANIFEST /ManifestFile:"Release\MFCProject2.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\github\MFCProject2\Release\MFCProject2.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\github\MFCProject2\Release\MFCProject2.lib" /MACHINE:X86 Release\MFCProject2.res
+         Release\MFCProject2.obj
+         Release\MFCProject2Dlg.obj
+         Release\searcher.obj
+         Release\stdafx.obj
+         正在生成代码
+         已完成代码的生成
+         MFCProject2.vcxproj -> E:\github\MFCProject2\Release\MFCProject2.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"E:\github\MFCProject2\Release\MFCProject2.exe;#1" /manifest Release\MFCProject2.exe.intermediate.manifest E:\developTool\vs2010\VC\Include\Manifest\dpiaware.manifest
+       FinalizeBuildStatus:
+         正在删除文件“Release\MFCProject2.unsuccessfulbuild”。
+         正在对“Release\MFCProject2.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\github\MFCProject2\MFCProject2\MFCProject2.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:03.66
