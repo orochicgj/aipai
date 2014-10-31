@@ -25,6 +25,7 @@ searcher::searcher(CString &edit1, CString &cbb){
 int searcher::fun_main(int page){	
 	url_date = _T("initiative_id=tbindexz_") + generateUrlDate();
 	url_keyWord = _T("q=") + generateUrlKeyWord(); 
+	url_page = generateUrlPage(page);
 	if(page != 1){
 		URL = url_head + url_keyWord + _T("&") + url_spm + _T("&") + url_option+ _T("&") + url_date + _T("&") + url_page;
 	}else{
@@ -51,10 +52,11 @@ int searcher::fun_main(int page){
 				return 1;
 			}
 		}
+		return 0;
 	}else{
+		std::cout << "URLDownloadToFile error";
 		return 1;
 	}//*/
-	return 0;
 }
 
 CString searcher::generateUrlDate(){
@@ -127,7 +129,9 @@ int searcher::searchLocation(CString &filePath, CString &ID){
 			ffout.close();
 
 		}else{
-			//std::cout << "not find in this page" << std::endl;
+			std::cout << "not find in this page" << std::endl;
+			is.close();
+			delete [] buffer;
 			flag = NULL;
 			return 1;
 		}
@@ -135,6 +139,7 @@ int searcher::searchLocation(CString &filePath, CString &ID){
 		std::cout << "            read File(dist) to buffer error" << std::endl;
 		return 1;
 	}
+	is.close();
 	delete [] buffer;
 	flag = NULL;
 	return 0;
